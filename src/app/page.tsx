@@ -1,120 +1,117 @@
 import LogoMarquee from "@/Components/LogoMarquee";
 import Navbar from "../Components/Navbar";
 import Image from "next/image";
-import Link from "next/link";
+import Footer from "@/Components/Footer";
+import Hero from "@/Components/Hero";
+import PrimaryBtn from "@/Components/PrimaryBtn";
+import Attendee from "@/Components/Attendee";
+import Persons from "@/Components/Persons";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#f6f7f8]">
+    <main className="min-h-screen mx-auto">
       <Navbar />
+      <div className="mt-10">
+        <Hero />
+      </div>
+      <LogoMarquee />
+      <div className="mx-auto h-200 pt-15 max-w-7xl px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+          <div>
+            <h2 className="text-5xl pl-6 mt-6 space-y-6 font-bold text-black leading-tight">
+              About the Event
+            </h2>
 
-      {/* Hero Section */}
-      <section className="relative pt-20 pb-28 overflow-hidden">
-        <div className="relative container mx-auto px-6 lg:px-16 max-w-7xl">
-          {/* TEXT + IMAGE */}
-          <div className="grid lg:grid-cols-2 gap-14 items-start">
-            {/* LEFT — TEXT */}
-            <div className="relative text-left space-y-6">
-              <h1 className="text-[3.2rem] md:text-[3.8rem] lg:text-[4.2rem] font-extrabold leading-tight tracking-tight text-black">
-                Nithub at 5:
-                <br />
-                <span className="relative inline-block">
-                  Celebrating
-                  <span className="absolute left-full ml-4 -top-1 text-green-500 italic font-extrabold text-[3.5rem] md:text-[4.2rem] lg:text-[4.8rem] z-20 whitespace-nowrap">
-                    Innovation
-                  </span>
-                </span>
-              </h1>
-
-              <h2 className="text-[2.8rem] md:text-[3.3rem] lg:text-[3.8rem] font-bold text-black leading-tight">
-                Shaping the future
-              </h2>
-
-              <p className="text-2xl md:text-2xl text-gray-800 max-w-xl leading-loose pt-2">
-                Join founders, students, investors, corporates, and policymakers
-                as we mark five years of innovation at the University of Lagos
-                and unveil the next phase of impact.
-              </p>
-
-              {/* Event Details */}
-              <div className="lg:text-lg flex gap-2 pt-2 text-sm">
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-green-400" />
-                  <span>University of Lagos</span>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-green-400" />
-                  <span>March 2026</span>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-green-400" />
-                  <span>10:00 AM – 4:00 PM (Daily)</span>
-                </div>
-              </div>
-
-              {/* Buttons */}
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  href="#"
-                  className="px-6 py-2 rounded-full border border-green-500 text-green-600 font-semibold hover:bg-green-500 hover:text-white transition"
-                >
-                  Become a Sponsor
-                </Link>
-
-                <Link
-                  href="#"
-                  className="px-6 py-2 rounded-full bg-green-500 text-white font-semibold hover:bg-green-600 transition"
-                >
-                  Register as Exhibitor
-                </Link>
-              </div>
+            <div className="mt-6 text-justify space-y-4 leading-loose text-black text-2xl list-disc pl-6">
+              The NITHUB 5th Year Anniversary & Innovation Fair is a two-day
+              innovation festival celebrating five years of impact by the
+              University of Lagos’ official innovation and technology hub.
             </div>
 
-            {/* RIGHT — IMAGE */}
-            <div className="relative">
-              <div className="relative rounded-4xl overflow-hidden shadow-xl border-b-10 border-r-10 border-green-500">
-                <Image
-                  src="/Images/Image card2.png"
-                  alt="Nithub Demo Day presentation"
-                  width={780}
-                  height={500}
-                  className="object-cover"
-                  priority
-                />
-              </div>
+            <div className="mt-6 text-justify space-y-4 leading-loose text-black text-2xl list-disc pl-6">
+              The event brings together student innovators, startups,
+              researchers, corporates, investors, and policymakers to explore
+              ideas, showcase solutions, and unlock new partnerships shaping the
+              future of technology and entrepreneurship in Nigeria.
+            </div>
+
+            <div className="mt-10 inline-flex items-center rounded-full px-6 py-3 text-white font-semibold transition">
+              <PrimaryBtn label={"Download Sponsorship Deck"} href={""} />
+            </div>
+          </div>
+          <div className="relative">
+            <div className="overflow-hidden rounded-2xl shadow-xl">
+              <Image
+                src="/Images/DSC07811.png"
+                alt="NITHUB Innovation Fair"
+                width={700}
+                height={500}
+                className="object-cover w-full h-full"
+                priority
+              />
+            </div>
+            <div className="absolute -bottom-40 left-6 right-6 mx-15 bg-white rounded-xl shadow-2xl p-6">
+              <ul className="space-y-3 text-gray-800 text-base">
+                <li className="flex items-center gap-2">
+                  <span className="text-[#62CF3A]">✦</span>
+                  <span className="text-sm">
+                    <span>2 days of innovation, ideas and impact</span>
+                  </span>
+                </li>
+
+                <li className="flex items-center gap-2">
+                  <span className="text-[#62CF3A]">✦</span>
+                  <span className="text-sm">
+                    <span>
+                      Live Hackathon with real-world problem statements
+                    </span>
+                  </span>
+                </li>
+
+                <li className="flex items-center gap-2">
+                  <span className="text-[#62CF3A]">✦</span>
+                  <span className="text-sm">
+                    <span>Startup exhibitions and demo days</span>
+                  </span>
+                </li>
+
+                <li className="flex items-center gap-2">
+                  <span className="text-[#62CF3A]">✦</span>
+                  <span className="text-sm">
+                    <span>Investor Deal Room with real capital intent</span>
+                  </span>
+                </li>
+
+                <li className="flex items-center gap-2">
+                  <span className="text-[#62CF3A]">✦</span>
+                  <span className="text-sm">
+                    <span>Keynotes, panels, and breakout sessions</span>
+                  </span>
+                </li>
+
+                <li className="flex items-center gap-2">
+                  <span className="text-[#62CF3A]">✦</span>
+                  <span className="text-sm">
+                    <span>Strategic partnerships and talent discovery</span>
+                  </span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-      </section>
-      <LogoMarquee />
-      <div className="grid lg:grid-cols-2 gap-10 mx-auto my-5">
-        <div className="">
-          <span className="text-6xl font-semibold">About the Event</span>
-          <p className="text-2xl py-5">
-            The NITHUB 5th Year Anniversary & Innovation Fair is a two-day
-            innovation festival celebrating five years of impact by the
-            University of Lagos’ official innovation and technology hub.
-          </p>
-
-          <p className="text-2xl py-5">
-            The event brings together student innovators, startups, researchers,
-            corporates, investors, and policymakers to explore ideas, showcase
-            solutions, and unlock new partnerships shaping the future of
-            technology and entrepreneurship in Nigeria.
-          </p>
-        </div>
-        <div>
-          <Image
-            src="/Images/DSC07811.png"
-            alt="About the event"
-            width={800}
-            height={400}
-            className="rounded-4xl"
-          ></Image>
-        </div>
       </div>
+      <div className="md:mt-100 mt-20">
+        <Image
+          src="/Images/Event overview section.svg"
+          alt="Event Overview"
+          width={1920}
+          height={1080}
+          className="w-full"
+        />
+      </div>
+      <Attendee />
+      <Persons />
+      <Footer />
     </main>
   );
 }

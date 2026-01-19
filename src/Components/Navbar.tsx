@@ -1,10 +1,33 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import PrimaryBtn from "./PrimaryBtn";
 
 export default function Navbar() {
+  const pathname = usePathname();
+
+  const linkClass = (href: string) => {
+    const isActive = pathname === href;
+
+    return `
+      lg:text-md
+      underline-offset-4
+      transition-all duration-200 ease-in-out
+      ${
+        isActive
+          ? "text-black underline"
+          : "text-gray-400 hover:text-black hover:underline"
+      }
+    `;
+  };
+
   return (
-    <nav className="bg-white shadow-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-16">
+    <nav className="bg-white">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-16">
+        
+        {/* Logo */}
         <div className="flex items-center">
           <Link href="/">
             <Image
@@ -12,39 +35,27 @@ export default function Navbar() {
               alt="Nithub Logo"
               width={120}
               height={40}
-            ></Image>
+              priority
+            />
           </Link>
         </div>
 
-        <div className="flex items-center gap-7">
-          <Link
-            href="/"
-            className="lg:text-sm hover:underline underline-offset-4 text-gray-700 ease-in-out duration-200 transition-all"
-          >
+        {/* Nav Links */}
+        <div className="flex items-center gap-7 mr-45">
+          <Link href="/" className={linkClass("/")}>
             Home
           </Link>
 
-          <Link
-            href="/about"
-            className="lg:text-sm hover:underline underline-offset-4 text-gray-700 ease-in-out duration-200 transition-all"
-          >
+          <Link href="/about" className={linkClass("/about")}>
             About
           </Link>
 
-          <Link
-            href="/sponsorships"
-            className="lg:text-sm hover:underline underline-offset-4 text-gray-700 ease-in-out duration-200 transition-all"
-          >
+          <Link href="/sponsorship" className={linkClass("/sponsorship")}>
             Sponsorships
           </Link>
         </div>
         <div>
-          <Link
-            href="/register-interest"
-            className="lg:text-sm px-6 py-2 rounded-full text-white bg-green-500 hover:bg-green-600 ease-in-out duration-200 transition-all"
-          >
-            Register Interest
-          </Link>
+          <PrimaryBtn label="Register Interest" href="/interest" />
         </div>
       </div>
     </nav>
