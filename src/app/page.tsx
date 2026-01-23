@@ -11,7 +11,6 @@ import Attendee from "@/Components/Attendee";
 import Persons from "@/Components/Persons";
 
 export default function Home() {
-  // Shared Animation Variants
   const fadeInUp = {
     initial: { opacity: 0, y: 40 },
     whileInView: { opacity: 1, y: 0 },
@@ -31,14 +30,9 @@ export default function Home() {
       <div className="mt-6 lg:mt-10">
         <Hero />
       </div>
-
-      {/* About Section */}
       <section className="mx-auto pt-15 max-w-7xl px-6 pb-20 lg:pb-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start lg:items-center">
-          
-          {/* Text Content */}
           <div className="order-2 lg:order-1">
-            {/* 1. Heading Fades in First */}
             <motion.h2 
               className="text-4xl md:text-center lg:text-left sm:text-center lg:text-5xl lg:pl-6 mt-6 space-y-6 font-bold text-black leading-tight"
               {...fadeInUp}
@@ -47,7 +41,6 @@ export default function Home() {
               About the Event
             </motion.h2>
 
-            {/* 3. Text details fade in third */}
             <motion.div 
               className="mt-6 space-y-4 leading-normal text-black text-lg lg:text-2xl lg:pl-6"
               {...fadeInUp}
@@ -69,7 +62,6 @@ export default function Home() {
               future of technology and entrepreneurship in Nigeria.
             </motion.div>
 
-            {/* 5. Buttons fade from left last */}
             <motion.div 
               className="mt-10 inline-flex items-center rounded-full px-0 lg:px-6 py-3 text-white font-semibold transition"
               {...fadeInLeft}
@@ -79,9 +71,8 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Image Column */}
           <div className="relative order-1 lg:order-2 mb-10 lg:mb-0">
-            {/* 2. Main Image Fades in Second */}
+
             <motion.div 
               className="overflow-hidden rounded-2xl shadow-xl aspect-video lg:aspect-auto"
               {...fadeInUp}
@@ -97,7 +88,6 @@ export default function Home() {
               />
             </motion.div>
 
-            {/* 4. White card with list fades in fourth */}
             <motion.div 
               className="maindiv tracking-wide relative mt-6 lg:absolute lg:-bottom-40 lg:left-6 lg:right-6 lg:mx-15 bg-white rounded-xl shadow-2xl px-6 py-6 z-20"
               initial={{ opacity: 0, scale: 0.95 }}
@@ -125,7 +115,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Full width image - Entrance Animation */}
       <motion.div 
         className="mt-10 lg:mt-40"
         initial={{ opacity: 0 }}
@@ -142,7 +131,6 @@ export default function Home() {
         />
       </motion.div>
       
-      {/* Attendee section reveal */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

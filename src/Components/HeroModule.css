@@ -7,10 +7,10 @@
     0% { transform: translate(-20px, -20px); }    /* Start: Up */
     37.5% { transform: translate(-20px, -20px); } /* 1.5s: Still Up */
     
-    50% { transform: translate(0, 0); }           /* 2.0s: Down (Covered) */
+    50% { transform: translate(0, 0); }           /* 2.0s: Down */
     87.5% { transform: translate(0, 0); }
     
-    100% { transform: translate(-20px, -20px); }  /* 4.0s: Back Up */
+    100% { transform: translate(-20px, -20px); }  /* 4.0s: Back Up */ /* maths.... */
 }
 
 .rotateWrapper {

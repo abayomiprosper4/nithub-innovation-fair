@@ -37,10 +37,7 @@ export default function AboutPage() {
           {/* Image Section */}
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
             <div className="relative inline-block">
-              {/* Decorative Green Box behind image */}
               <div className="absolute top-4 left-4 w-full h-full bg-[#62CF3A] rounded-4xl -z-10" />
-              
-              {/* Image Container */}
               <div className="relative z-10 bg-white rounded-4xl overflow-hidden shadow-lg">
                 <img
                   src="/Images/aboutimage.png"

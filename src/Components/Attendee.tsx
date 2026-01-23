@@ -1,4 +1,4 @@
-"use client"; // This must be the very first line
+"use client";
 
 import Image from "next/image";
 import PrimaryBtn from "@/Components/PrimaryBtn";

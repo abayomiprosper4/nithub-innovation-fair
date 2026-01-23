@@ -35,7 +35,6 @@ export default function SponsorshipPage() {
 
     try {
       const response = await fetch("/api/sponsorship", {
-        // Ensure this matches your route folder path
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

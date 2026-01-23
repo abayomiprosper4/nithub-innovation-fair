@@ -16,11 +16,9 @@ export default function LogoMarquee() {
   return (
     <section className="w-full bg-[#fcfaef] py-20 my-10 overflow-hidden">
       <div className="relative">
-        {/* Gradient fade edges */}
         <div className="pointer-events-none absolute left-0 top-0 h-full w-20 bg-linear-to-r from-[#f6f8f3] to-transparent z-10" />
         <div className="pointer-events-none absolute right-0 top-0 h-full w-20 bg-linear-to-l from-[#f6f8f3] to-transparent z-10" />
 
-        {/* Marquee track */}
         <div className="flex w-max animate-marquee gap-20 px-20">
           {[...logos, ...logos].map((logo, index) => (
             <div

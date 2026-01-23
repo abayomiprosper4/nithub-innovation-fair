@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 export default function Persons() {
-  // Four speakers with distinct images and info
   const speakers = [
     {
       src: "/Images/Prof 3.png",
