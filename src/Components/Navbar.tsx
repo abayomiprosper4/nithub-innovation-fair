@@ -32,13 +32,12 @@ export default function Navbar() {
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/">
-            <img>
+            <img
               src="/images/nithub-logo.svg"
               alt="Nithub Logo"
               width={120}
               height={40}
-              priority
-            </img>
+            />
           </Link>
         </div>
 

@@ -42,13 +42,12 @@ export default function AboutPage() {
               
               {/* Image Container */}
               <div className="relative z-10 bg-white rounded-4xl overflow-hidden shadow-lg">
-                <Image
+                <img
                   src="/Images/aboutimage.png"
                   alt="Nithub Demo Day presentation"
                   width={600}
                   height={500}
                   className="object-cover w-full h-auto max-h-100 lg:max-h-125"
-                  priority
                 />
               </div>
             </div>
