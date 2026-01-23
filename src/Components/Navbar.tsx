@@ -2,10 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import PrimaryBtn from "./PrimaryBtn";
-import { FiMenu, FiX } from "react-icons/fi"; // Make sure to install react-icons
+import { FiMenu, FiX } from "react-icons/fi";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -29,31 +28,27 @@ export default function Navbar() {
   return (
     <nav className="maindiv bg-[#fafafa]/70 backdrop-blur-sm border-b border-white/20 fixed w-full z-50">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-16">
-        {/* Logo */}
         <div className="flex items-center">
-          <Link href="/">
+          <a href="/">
             <img
               src="/images/nithub-logo.svg"
               alt="Nithub Logo"
               width={120}
               height={40}
             />
-          </Link>
+          </a>
         </div>
 
-        {/* Desktop Nav Links */}
         <div className="hidden lg:flex text-sm tracking-wider items-center gap-7 mr-40">
           <Link href="/" className={linkClass("/")}>Home</Link>
           <Link href="/about" className={linkClass("/about")}>About</Link>
           <Link href="/sponsorship" className={linkClass("/sponsorship")}>Sponsorships</Link>
         </div>
 
-        {/* Desktop Button */}
         <div className="hidden lg:block">
           <PrimaryBtn label="Register Interest" href="/interest" />
         </div>
 
-        {/* Mobile Menu Button */}
         <div className="lg:hidden">
           <button onClick={() => setIsOpen(!isOpen)} className="text-2xl text-black">
             {isOpen ? <FiX /> : <FiMenu />}
@@ -61,7 +56,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
       {isOpen && (
         <div className="absolute top-20 left-0 w-full bg-white shadow-lg py-6 px-6 flex flex-col gap-4 lg:hidden border-t">
           <Link href="/" className={linkClass("/")} onClick={() => setIsOpen(false)}>Home</Link>
