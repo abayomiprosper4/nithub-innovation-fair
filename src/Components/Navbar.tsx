@@ -31,7 +31,7 @@ export default function Navbar() {
         <div className="flex items-center">
           <a href="/">
             <img
-              src="/images/nithub-logo.svg"
+              src="/Images/nithub-logo.svg"
               alt="Nithub Logo"
               width={120}
               height={40}
