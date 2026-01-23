@@ -1,211 +1,280 @@
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import confetti from "canvas-confetti";
 import PrimaryBtn from "@/Components/PrimaryBtn";
 import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
 
 export default function SponsorshipPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    organization: "",
+    interest: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleConfetti = () => {
+    confetti({
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 0.6 },
+      zIndex: 200,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/sponsorship", {
+        // Ensure this matches your route folder path
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSuccess(true);
+        handleConfetti();
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          organization: "",
+          interest: "",
+          message: "",
+        });
+      } else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.error || "Unknown error occurred"}`);
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("Failed to submit. Check your connection.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <section className="w-full bg-gray-50">
+    <main className="w-full bg-white font-sans selection:bg-[#62CF3A]/30">
       <Navbar />
-      <div className="mx-auto pt-15 max-w-7xl px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
 
+      <AnimatePresence>
+        {success && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-100 flex items-center justify-center bg-black/40 backdrop-blur-md p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              className="bg-white p-10 rounded-[2.5rem] shadow-2xl max-w-sm w-full text-center border border-gray-100"
+            >
+              <div className="w-20 h-20 bg-green-50 text-[#62CF3A] rounded-full flex items-center justify-center mx-auto mb-6 text-4xl">
+                ✓
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                Interest Received!
+              </h3>
+              <p className="text-gray-500 mb-8">
+                Thank you for partnering with NITHUB. Our team will reach out
+                shortly.
+              </p>
+              <button
+                onClick={() => setSuccess(false)}
+                className="w-full py-4 bg-[#62CF3A] text-white rounded-xl font-bold hover:brightness-110 transition-all"
+              >
+                Close
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <section className="max-w-7xl mx-auto px-6 py-20 lg:py-20">
+        <div className="grid mt-10 grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
-            <h2 className="text-4xl font-bold text-gray-900 leading-tight">
+            <h1 className="text-5xl lg:text-5xl font-bold text-[#0F172A] leading-[1.1] tracking-tight">
               Why Sponsor This Event?
-            </h2>
-
-            <p className="mt-6 text-gray-700 text-lg leading-relaxed max-w-xl">
-              Partnering with the NITHUB 5th Year Anniversary &amp; Innovation
-              Fair offers sponsors:
+            </h1>
+            <p className="mt-8 text-lg text-gray-600 leading-relaxed max-w-lg">
+              Partnering with the NITHUB 5th Year Anniversary & Innovation Fair
+              offers sponsors:
             </p>
-
-            <ul className="mt-6 space-y-4 text-gray-800 text-lg list-disc pl-6">
-              <li>Access to emerging talent and startups</li>
-              <li>Early visibility into innovation and deal-flow</li>
-              <li>
-                Strong brand alignment with youth and technology
-              </li>
-              <li>
-                Long-term ecosystem partnership with NITHUB
-              </li>
+            <ul className="mt-8 space-y-4">
+              {[
+                "Access to emerging talent and startups",
+                "Early visibility into innovation and deal-flow",
+                "Strong brand alignment with youth and technology",
+                "Long-term ecosystem partnership with NITHUB",
+              ].map((item, i) => (
+                <li
+                  key={i}
+                  className="flex items-center gap-3 text-gray-700 text-lg"
+                >
+                  <span className="w-1.5 h-1.5 bg-gray-900 rounded-full" />{" "}
+                  {item}
+                </li>
+              ))}
             </ul>
-
-            <div className="mt-10 inline-flex items-center rounded-full px-6 py-3 text-white font-semibold transition">
-              <PrimaryBtn label={"Download Sponsorship Deck"} href={""} />
+            <div className="mt-12">
+              <PrimaryBtn label="Download Sponsorship Deck" href="#" />
             </div>
           </div>
           <div className="relative">
-            <div className="overflow-hidden rounded-2xl shadow-xl">
+            <div className="rounded-[2.5rem] overflow-hidden shadow-2xl ring-1 ring-black/5">
               <Image
-                src="/Images/Image card4.png"
-                alt="NITHUB Innovation Fair"
-                width={700}
-                height={500}
-                className="object-cover w-full h-full"
-                priority
+                src="/Images/WhatsApp Image 2026-01-21 at 12.18.28(1).jpeg"
+                alt="Sponsors"
+                width={800}
+                height={600}
+                className="w-full h-auto object-cover"
               />
             </div>
-            <div className="absolute -bottom-40 left-6 right-6 mx-15 bg-white rounded-xl shadow-2xl p-6">
-              <ul className="space-y-3 text-gray-800 text-base">
-                <li className="flex items-center gap-2">
-                  <span className="text-[#62CF3A]">✦</span>
-                  <span className="text-sm">
-                    <span>Platinum Sponsor</span> –<span className="font-bold"> ₦10,000,000</span>
-                  </span>
-                </li>
 
-                <li className="flex items-center gap-2">
-                  <span className="text-[#62CF3A]">✦</span>
-                  <span className="text-sm">
-                    <span>Diamond Sponsor</span> –<span className="font-bold"> ₦7,000,000</span>
-                  </span>
-                </li>
-
-                <li className="flex items-center gap-2">
-                  <span className="text-[#62CF3A]">✦</span>
-                  <span className="text-sm">
-                    <span>Gold Sponsor</span> –<span className="font-bold"> ₦5,000,000</span>
-                  </span>
-                </li>
-
-                <li className="flex items-center gap-2">
-                  <span className="text-[#62CF3A]">✦</span>
-                  <span className="text-sm">
-                    <span>Silver Sponsor</span> –<span className="font-bold"> ₦3,000,000</span>
-                  </span>
-                </li>
-
-                <li className="flex items-center gap-2">
-                  <span className="text-[#62CF3A]">✦</span>
-                  <span className="text-sm">
-                    <span>Prize Money Sponsor</span> –<span className="font-bold"> ₦10,000,000 Prize Pool</span>
-                  </span>
-                </li>
-
-                <li className="flex items-center gap-2">
-                  <span className="text-[#62CF3A]">✦</span>
-                  <span className="text-sm">
-                    <span>Deal Room Sponsor</span> –<span className="font-bold"> $100k–$1M Investment</span>
-                  </span>
-                </li>
-
-                <li className="flex items-center gap-2">
-                  <span className="text-[#62CF3A]">✦</span>
-                  <span className="text-sm">
-                    <span>Exhibitors &amp; In-Kind Partners</span>
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <div className="w-full bg-gray-50 pt-64">
-  <div className="mx-auto max-w-7xl px-6">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <div>
-        <h2 className="text-4xl font-bold text-gray-900">
-          Partner With Nithub
-        </h2>
-
-        <p className="mt-4 text-lg text-gray-700 max-w-xl">
-          Tell us about your organization and how you would like to partner
-          with the NITHUB 5th Year Anniversary &amp; Innovation Fair.
-        </p>
-
-        <form className="mt-10 space-y-5 max-w-xl">
-          <div>
-            <label className="block text-sm text-gray-700 mb-1">
-              Full name
-            </label>
-            <input
-              type="text"
-              placeholder="Full name"
-              className="w-full rounded-md border border-gray-200 bg-gray-50 px-4 py-2.5 text-gray-900 focus:border-[#62CF3A] focus:outline-none focus:ring-1 focus:ring-green-500"
-            />
-          </div>
-          <div>
-            <label className="block text-sm text-gray-700 mb-1">
-              Email
-            </label>
-            <input
-              type="email"
-              placeholder="Email"
-              className="w-full rounded-md border border-gray-200 bg-gray-50 px-4 py-2.5 focus:border-[#62CF3A] focus:outline-none focus:ring-1 focus:ring-green-500"
-            />
-          </div>
-          <div>
-            <label className="block text-sm text-gray-700 mb-1">
-              Phone number
-            </label>
-            <input
-              type="tel"
-              placeholder="Phone number"
-              className="w-full rounded-md border border-gray-200 bg-gray-50 px-4 py-2.5 focus:border-[#62CF3A]focus:outline-none focus:ring-1 focus:ring-green-500"
-            />
-          </div>
-          <div>
-            <label className="block text-sm text-gray-700 mb-1">
-              Organization
-            </label>
-            <input
-              type="text"
-              placeholder="Organization"
-              className="w-full rounded-md border border-gray-200 bg-gray-50 px-4 py-2.5 focus:border-[#62CF3A]focus:outline-none focus:ring-1 focus:ring-green-500"
-            />
-          </div>
-          <div>
-            <label className="block text-sm text-gray-700 mb-1">
-              Sponsorship Interest
-            </label>
-            <select
-              className="w-full rounded-md border border-gray-200 bg-gray-50 px-4 py-2.5 focus:border-[#62CF3A] focus:outline-none focus:ring-1 focus:ring-green-500"
+            <motion.div
+              initial={{ x: 50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              className="absolute -bottom-30 -left-6 lg:left-25  bg-white p-8 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.12)] border border-gray-50 w-[90%] sm:w-100 z-20"
             >
-              <option>Select an option</option>
-              <option>Platinum Sponsor</option>
-              <option>Diamond Sponsor</option>
-              <option>Gold Sponsor</option>
-              <option>Silver Sponsor</option>
-              <option>Prize Money Sponsor</option>
-              <option>Deal Room Sponsor</option>
-              <option>Exhibitor / In-kind Partner</option>
-            </select>
+              <div className="space-y-4">
+                {[
+                  ["Platinum Sponsor", "₦10,000,000"],
+                  ["Diamond Sponsor", "₦7,000,000"],
+                  ["Gold Sponsor", "₦5,000,000"],
+                  ["Silver Sponsor", "₦3,000,000"],
+                  ["Prize Money Sponsor", "₦10,000,000 Pool"],
+                  ["Deal Room Sponsor", "$100k–$1M Capital"],
+                  ["In-Kind Partners", "Custom"],
+                ].map(([name, price], i) => (
+                  <div
+                    key={i}
+                    className="flex items-center justify-between group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="text-[#62CF3A] text-xs">✦</span>
+                      <span className="text-sm font-bold text-gray-800">
+                        {name}
+                      </span>
+                    </div>
+                    <span className="text-sm text-gray-400 font-medium">
+                      — {price}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-50 py-32">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20">
           <div>
-            <label className="block text-sm text-gray-700 mb-1">
-              Message
-            </label>
-            <textarea
-              rows={4}
-              placeholder="Message"
-              className="w-full rounded-md border border-gray-200 bg-gray-50 px-4 py-2.5 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500"
+            <h2 className="text-5xl font-bold text-gray-900 leading-tight">
+              Partner With Nithub
+            </h2>
+            <p className="mt-6 text-lg text-gray-600 mb-12">
+              Join the movement shaping Nigeria's tech future.
+            </p>
+            <form onSubmit={handleSubmit} className="space-y-4 max-w-xl">
+              <input
+                required
+                placeholder="Full name"
+                className="w-full px-6 py-4 rounded-2xl border-none ring-1 ring-gray-200 focus:ring-2 focus:ring-[#62CF3A] outline-none transition-all"
+                value={formData.name}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
+              />
+              <input
+                required
+                type="email"
+                placeholder="Email"
+                className="w-full px-6 py-4 rounded-2xl border-none ring-1 ring-gray-200 focus:ring-2 focus:ring-[#62CF3A] outline-none transition-all"
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+              />
+              <input
+                required
+                type="phone"
+                placeholder="Phone"
+                className="w-full px-6 py-4 rounded-2xl border-none ring-1 ring-gray-200 focus:ring-2 focus:ring-[#62CF3A] outline-none transition-all"
+                value={formData.phone}
+                onChange={(e) =>
+                  setFormData({ ...formData, phone: e.target.value })
+                }
+              />
+              <input
+                required
+                placeholder="Organization"
+                className="w-full px-6 py-4 rounded-2xl border-none ring-1 ring-gray-200 focus:ring-2 focus:ring-[#62CF3A] outline-none transition-all"
+                value={formData.organization}
+                onChange={(e) =>
+                  setFormData({ ...formData, organization: e.target.value })
+                }
+              />
+              <select
+                required
+                className="w-full px-6 py-4 rounded-2xl border-none ring-1 ring-gray-200 focus:ring-2 focus:ring-[#62CF3A] outline-none transition-all text-gray-500 bg-white"
+                value={formData.interest}
+                onChange={(e) =>
+                  setFormData({ ...formData, interest: e.target.value })
+                }
+              >
+                <option value="">Select sponsorship interest</option>
+                <option value="Platinum Sponsor">Platinum Sponsor</option>
+                <option value="Diamond Sponsor">Diamond Sponsor</option>
+                <option value="Gold Sponsor">Gold Sponsor</option>
+                <option value="Silver Sponsor">Silver Sponsor</option>
+                <option value="Prize Money Sponsor">Prize Money Sponsor</option>
+                <option value="Deal Room Sponsor">Deal Room Sponsor</option>
+                <option value="In-Kind Partner">In-Kind Partner</option>
+              </select>
+              <textarea
+                placeholder="Message"
+                rows={4}
+                className="w-full px-6 py-4 rounded-2xl border-none ring-1 ring-gray-200 focus:ring-2 focus:ring-[#62CF3A] outline-none transition-all"
+                value={formData.message}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
+              />
+              <div className="pt-4">
+                <PrimaryBtn
+                  label={loading ? "Processing..." : "Register"}
+                  type="submit"
+                  disabled={loading}
+                />
+              </div>
+            </form>
+          </div>
+          <div className="hidden lg:flex items-center justify-end">
+            <Image
+              src="/Images/Card.svg"
+              alt="Illustration"
+              width={500}
+              height={500}
+              className="object-contain"
             />
           </div>
-          <button
-            type="submit"
-            className="inline-flex rounded-full bg-green-500 px-6 py-2.5 text-white font-semibold hover:bg-green-600 transition"
-          >
-            Register
-          </button>
-        </form>
-      </div>
+        </div>
+      </section>
 
-      <div className="flex justify-center lg:justify-end">
-        <Image
-          src="/Images/Card.svg"
-          alt="Coins Illustration"
-          width={700}
-          height={700}
-          className="object-contain"
-          priority
-        />
-      </div>
-    </div>
-  </div>
-</div>
-<Footer />
-    </section>
+      <Footer />
+    </main>
   );
 }
