@@ -137,8 +137,8 @@ export default function Attendee() {
                   amount: 0.3,
                 }}
                 transition={{
-                  duration: 0.6,
-                  ease: "easeInOut",
+                  duration: 0.2,
+                  ease: "easeOut",
                   delay: getDelay(tag.label),
                 }}
                 style={{

@@ -63,7 +63,7 @@ const Hero = () => {
               initial="initial"
               animate="animate"
               variants={fadeInUp}
-              transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             >
               Join founders, students, investors, corporates and policy makers
               as we mark five years of innovation at the University of Lagos and
@@ -101,7 +101,7 @@ const Hero = () => {
             initial="initial"
             animate="animate"
             variants={fadeInLeft}
-            transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
           >
             <div className="flex text-base lg:text-lg tracking-[-1px] text-[#232323] font-normal items-center">
               <img src="/Images/location.svg" alt="Location" className="mr-2 w-6 lg:w-7" />
@@ -121,7 +121,7 @@ const Hero = () => {
             initial="initial"
             animate="animate"
             variants={fadeInLeft}
-            transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
           >
             <SecondaryBtn label="Become a Sponsor" href="/sponsorship" />
             <PrimaryBtn label="Register as Exhibitor" href="/exhibitor" />
