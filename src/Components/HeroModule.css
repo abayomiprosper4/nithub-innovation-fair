@@ -1,73 +1,85 @@
+
+:root {
+  --rotate-height: 91px;
+  --snap-offset: -20px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --rotate-height: 52px; 
+    --snap-offset: -12px;
+  }
+}
+
 .containerSnap {
-    animation: container-snap 4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
-    transform: translate(-20px, -20px); 
+  animation: container-snap 4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  transform: translate(var(--snap-offset), var(--snap-offset)); 
 }
 
 @keyframes container-snap {
-    0% { transform: translate(-20px, -20px); }    /* Start: Up */
-    37.5% { transform: translate(-20px, -20px); } /* 1.5s: Still Up */
-    
-    50% { transform: translate(0, 0); }           /* 2.0s: Down */
-    87.5% { transform: translate(0, 0); }
-    
-    100% { transform: translate(-20px, -20px); }  /* 4.0s: Back Up */ /* maths.... */
+  0% { transform: translate(var(--snap-offset), var(--snap-offset)); }
+  37.5% { transform: translate(var(--snap-offset), var(--snap-offset)); }
+  
+  50% { transform: translate(0, 0); }
+  87.5% { transform: translate(0, 0); }
+  
+  100% { transform: translate(var(--snap-offset), var(--snap-offset)); }
 }
 
 .rotateWrapper {
-    display: flex;
-    flex-direction: column;
-    animation: rotate-loop 12s cubic-bezier(0.65, 0, 0.35, 1) infinite;
-    will-change: transform;
+  display: flex;
+  flex-direction: column;
+  animation: rotate-loop 12s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  will-change: transform;
 }
 
 .rotateWrapper span {
-    height: 85px;          
-    display: flex;
-    align-items: center;
-    margin-top: 6px;       
+  height: var(--rotate-height);          
+  display: flex;
+  align-items: center;
 }
 
 @keyframes rotate-loop {
-    /* Word 1 */
-    0%     { transform: translateY(0); }
-    29.16% { transform: translateY(0); }
-    
-    /* Word 2  */
-    33.33% { transform: translateY(-95px); } 
-    62.49% { transform: translateY(-95px); } 
-    
-    /* Word 3 */
-    66.66% { transform: translateY(-190px); }
-    95.83% { transform: translateY(-190px); } 
-    
-    /* Clone */
-    100%   { transform: translateY(-285px); }
+  /* Word 1 */
+  0%     { transform: translateY(0); }
+  29.16% { transform: translateY(0); }
+  
+  /* Word 2 */
+  33.33% { transform: translateY(calc(var(--rotate-height) * -1)); } 
+  62.49% { transform: translateY(calc(var(--rotate-height) * -1)); } 
+  
+  /* Word 3 */
+  66.66% { transform: translateY(calc(var(--rotate-height) * -2)); }
+  95.83% { transform: translateY(calc(var(--rotate-height) * -2)); } 
+  
+  /* Clone */
+  100%   { transform: translateY(calc(var(--rotate-height) * -3)); }
 }
 
 .imageReel {
-    display: flex;
-    height: 100%;
-    width: calc(var(--count) * 100%); 
-    animation: reel-slide-smooth 12s cubic-bezier(0.65, 0, 0.35, 1) infinite;
-    will-change: transform;
+  display: flex;
+  height: 100%;
+  width: calc(var(--count) * 100%); 
+  animation: reel-slide-smooth 12s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  will-change: transform;
 }
 
 .slide {
-    width: calc(100% / var(--count));
-    height: 100%;
-    object-fit: cover;
-    flex-shrink: 0;
+  width: calc(100% / var(--count));
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 @keyframes reel-slide-smooth {
-    0%   { transform: translateX(0); }
-    25%  { transform: translateX(0); }
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(0); }
 
-    33.33% { transform: translateX(calc(-100% / var(--count))); }
-    58.33% { transform: translateX(calc(-100% / var(--count))); }
+  33.33% { transform: translateX(calc(-100% / var(--count))); }
+  58.33% { transform: translateX(calc(-100% / var(--count))); }
 
-    66.66% { transform: translateX(calc(-200% / var(--count))); }
-    91.66% { transform: translateX(calc(-200% / var(--count))); }
+  66.66% { transform: translateX(calc(-200% / var(--count))); }
+  91.66% { transform: translateX(calc(-200% / var(--count))); }
 
-    100% { transform: translateX(calc(-300% / var(--count))); }
+  100% { transform: translateX(calc(-300% / var(--count))); }
 }
