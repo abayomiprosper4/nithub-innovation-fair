@@ -17,139 +17,92 @@ const fallOrder = [
   "Researchers",
 ];
 
-const getDelay = (label: string): number => fallOrder.indexOf(label) * 0.65;
+const getDelay = (label: string): number => fallOrder.indexOf(label) * 0.85;
 
 const tags = [
   {
     label: "Researchers",
     color: "bg-cyan-100",
     rotate: "rotate-12 lg:rotate-15",
-    top: "15%",
-    left: "5%",
-    mTop: "2%",
-    mLeft: "5%",
+    position: "top-[10%] left-[10%] lg:top-[15%] lg:left-[5%]",
   },
   {
     label: "Investors",
     color: "bg-purple-100",
     rotate: "rotate-12 lg:rotate-15",
-    top: "15%",
-    left: "45%",
-    mTop: "12%",
-    mLeft: "50%",
+    position: "top-[15%] left-[50%] lg:top-[15%] lg:left-[45%]",
   },
   {
     label: "Startup founders",
     color: "bg-green-100",
     rotate: "-rotate-6 lg:-rotate-10",
-    top: "30%",
-    left: "5%",
-    mTop: "25%",
-    mLeft: "2%",
+    position: "top-[28%] left-[8%] lg:top-[30%] lg:left-[5%]",
   },
   {
     label: "Policy makers",
     color: "bg-yellow-100",
     rotate: "-rotate-6 lg:-rotate-10",
-    top: "30%",
-    left: "42%",
-    mTop: "38%",
-    mLeft: "40%",
+    position: "top-[32%] left-[45%] lg:top-[30%] lg:left-[42%]",
   },
   {
     label: "Creators",
     color: "bg-blue-100",
     rotate: "rotate-12 lg:rotate-15",
-    top: "45%",
-    left: "5%",
-    mTop: "52%",
-    mLeft: "5%",
+    position: "top-[48%] left-[5%] lg:top-[45%] lg:left-[5%]",
   },
   {
     label: "Designers",
     color: "bg-indigo-200",
     rotate: "-rotate-12 lg:-rotate-25",
-    top: "45%",
-    left: "30%",
+    position: "top-[52%] left-[28%] lg:top-[45%] lg:left-[30%]",
     z: "z-10",
-    mTop: "65%",
-    mLeft: "25%",
   },
   {
     label: "Developers",
     color: "bg-red-100",
     rotate: "rotate-12",
-    top: "45%",
-    left: "55%",
-    mTop: "55%",
-    mLeft: "55%",
+    position: "top-[50%] left-[58%] lg:top-[45%] lg:left-[55%]",
   },
   {
     label: "Students",
     color: "bg-pink-100",
     rotate: "-rotate-12",
-    top: "60%",
-    left: "5%",
-    mTop: "80%",
-    mLeft: "2%",
+    position: "top-[70%] left-[10%] lg:top-[60%] lg:left-[5%]",
   },
   {
     label: "Industry leaders",
     color: "bg-green-200",
     rotate: "-rotate-15",
-    top: "60%",
-    left: "35%",
-    mTop: "85%",
-    mLeft: "45%",
+    position: "top-[72%] left-[42%] lg:top-[60%] lg:left-[35%]",
   },
 ];
 
 export default function Attendee() {
   return (
-    <section className="maindiv bg-[#ffffff] mt-5 py-10 px-6 md:px-12 lg:px-24 font-sans overflow-x-hidden">
+    <section className="bg-white mt-5 py-10 px-6 md:px-12 lg:px-24 font-sans overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl text-center lg:text-left font-bold text-gray-900">
+        <h2 className="text-4xl md:text-5xl text-center lg:text-left font-bold text-gray-900 mb-5">
           Who can attend?
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative h-120 sm:h-137.5 lg:h-150 w-full">
+          <div className="relative h-112.5 sm:h-125 lg:h-150 w-full flex justify-center lg:block">
             {tags.map((tag, index) => (
               <motion.span
                 key={index}
                 className={`
-    absolute px-4 py-2 lg:px-8 lg:py-3 rounded-full 
-    text-sm sm:text-lg lg:text-2xl font-medium text-gray-800 
-    shadow-sm transition-transform hover:scale-105 cursor-default 
-    whitespace-nowrap 
-    ${tag.color} ${tag.rotate} ${tag.z || "z-0"}
-  `}
-                initial={{
-                  y: -200,
-                  opacity: 0,
-                }}
-                whileInView={{
-                  y: 0,
-                  opacity: 1,
-                }}
-                viewport={{
-                  once: true,
-                  amount: 0.3,
-                }}
+                  absolute px-4 py-2 lg:px-8 lg:py-3 rounded-full 
+                  text-sm sm:text-base lg:text-2xl font-medium text-gray-800 
+                  shadow-md cursor-default whitespace-nowrap 
+                  ${tag.color} ${tag.rotate} ${tag.z || "z-0"} ${tag.position}
+                `}
+                initial={{ y: -150, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.4 }}
                 transition={{
-                  duration: 0.2,
-                  ease: "easeOut",
+                  duration: 0.6,
+                  ease: [0.21, 1.02, 0.49, 1],
                   delay: getDelay(tag.label),
-                }}
-                style={{
-                  top:
-                    typeof window !== "undefined" && window.innerWidth < 1024
-                      ? tag.mTop
-                      : tag.top,
-                  left:
-                    typeof window !== "undefined" && window.innerWidth < 1024
-                      ? tag.mLeft
-                      : tag.left,
                 }}
               >
                 {tag.label}
@@ -158,7 +111,7 @@ export default function Attendee() {
           </div>
 
           <div className="flex flex-col items-center">
-            <div className="rounded-3xl overflow-hidden shadow-xl mb-8 w-full border border-gray-100">
+            <div className="rounded-3xl overflow-hidden shadow-2xl mb-8 w-full border border-gray-100">
               <Image
                 src="/Images/WhatsApp Image 2026-01-21 at 12.18.34(6).jpeg"
                 alt="People networking"
