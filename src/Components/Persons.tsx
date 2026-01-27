@@ -17,7 +17,7 @@ export default function Persons() {
       src: "/Images/Prof 3.png",
       alt: "Prof. Ogunsola Folashade",
       name: "Prof. Ogunsola Folashade",
-      title1: "Head of Department Computer Science",
+      title1: "Vice Chancellor",
       title2: "University of Lagos",
     },
     {
@@ -31,7 +31,7 @@ export default function Persons() {
       src: "/Images/prof-ogunsola.png",
       alt: "Dr. Chika Yinka-Banjo",
       name: "Dr. Chika Yinka-Banjo",
-      title1: "Vice Chancellor",
+      title1: "Head of Department Computer Science",
       title2: "University of Lagos",
     },
   ];
