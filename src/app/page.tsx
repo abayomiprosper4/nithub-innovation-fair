@@ -144,7 +144,7 @@ export default function Home() {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <Persons />
+        {/* <Persons /> */}
       </motion.div>
       <Sponsors />
       <Footer />
