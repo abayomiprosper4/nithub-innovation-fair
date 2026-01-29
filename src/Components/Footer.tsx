@@ -79,7 +79,7 @@ export default function Footer() {
         
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-[14px] text-[#6B7280] text-center md:text-left">
-            &copy; {new Date().getFullYear()} Nithub. All rights reserved.
+            Copyright &copy; {new Date().getFullYear()} Nithub. All rights reserved.
           </p>
         </div>
       </div>
