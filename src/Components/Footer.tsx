@@ -1,16 +1,16 @@
 import { FaTiktok, FaWhatsapp } from "react-icons/fa";
 import { FiFacebook, FiInstagram, FiLinkedin, FiTwitter } from "react-icons/fi";
-import Link from "next/link"; // Use Next.js Link for better performance
+import Link from "next/link"; 
 
 export default function Footer() {
-  // Group 1: General Info
+
   const generalLinks = [
     { name: "About Nithub", href: "/about" },
     { name: "Event Overview", href: "/events" },
     { name: "Contact Us", href: "/contact" },
   ];
 
-  // Group 3: Engagement
+
   const engagementLinks = [
     { name: "Register Interest", href: "/interest" },
     { name: "Sponsorship", href: "/sponsorship" },
@@ -22,7 +22,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-10 lg:gap-4">
           
-          {/* Brand Section */}
+
           <div className="w-full lg:w-[35%]">
             <div className="mb-6 md:mb-8">
               <img
@@ -61,7 +61,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Social Icons */}
+
           <div className="w-full lg:w-auto lg:pb-1">
             <div className="flex items-center gap-6 sm:gap-5 text-[#6B7280] flex-wrap lg:justify-end">
               <a href="https://linkedin.com" target="_blank" className="hover:text-[#62CF3A] hover:scale-110 transition p-1"><FiLinkedin size={24} /></a>
