@@ -1,5 +1,6 @@
 import { FaTiktok, FaWhatsapp } from "react-icons/fa";
-import { FiFacebook, FiInstagram, FiLinkedin, FiTwitter } from "react-icons/fi";
+import { FiFacebook, FiInstagram, FiLinkedin } from "react-icons/fi";
+import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link"; 
 
 export default function Footer() {
@@ -18,7 +19,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="maindiv tracking-wide bg-[#F3F4F6] py-12 md:py-16 mt-20 font-sans">
+    <footer className="maindiv tracking-wide bg-[#F3F4F6] md:py-16 py-20 font-sans">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-10 lg:gap-4">
           
@@ -64,12 +65,12 @@ export default function Footer() {
 
           <div className="w-full lg:w-auto lg:pb-1">
             <div className="flex items-center gap-6 sm:gap-5 text-[#6B7280] flex-wrap lg:justify-end">
-              <a href="https://linkedin.com" target="_blank" className="hover:text-[#62CF3A] hover:scale-110 transition p-1"><FiLinkedin size={24} /></a>
-              <a href="https://facebook.com" target="_blank" className="hover:text-[#62CF3A] hover:scale-110 transition p-1"><FiFacebook size={24} /></a>
+              <a href="https://www.linkedin.com/company/nithub/posts/?feedView=all" target="_blank" className="hover:text-[#62CF3A] hover:scale-110 transition p-1"><FiLinkedin size={24} /></a>
+              <a href="https://www.facebook.com/profile.php?id=61555262481803" target="_blank" className="hover:text-[#62CF3A] hover:scale-110 transition p-1"><FiFacebook size={24} /></a>
               <a href="https://wa.me/yournumber" target="_blank" className="hover:text-[#62CF3A] hover:scale-110 transition p-1"><FaWhatsapp size={24} /></a>
-              <a href="https://twitter.com" target="_blank" className="hover:text-[#62CF3A] hover:scale-110 transition p-1"><FiTwitter size={24} /></a>
-              <a href="https://instagram.com" target="_blank" className="hover:text-[#62CF3A] hover:scale-110 transition p-1"><FiInstagram size={24} /></a>
-              <a href="https://tiktok.com" target="_blank" className="hover:text-[#62CF3A] hover:scale-110 transition p-1"><FaTiktok size={24} /></a>
+              <a href="https://x.com/nithub_lag" target="_blank" className="hover:text-[#62CF3A] hover:scale-110 transition p-1"><FaXTwitter size={24} /></a>
+              <a href="https://www.instagram.com/nithub_unilag/" target="_blank" className="hover:text-[#62CF3A] hover:scale-110 transition p-1"><FiInstagram size={24} /></a>
+              <a href="https://www.tiktok.com/@nithub_unilag" target="_blank" className="hover:text-[#62CF3A] hover:scale-110 transition p-1"><FaTiktok size={24} /></a>
             </div>
           </div>
 
@@ -78,7 +79,7 @@ export default function Footer() {
         <hr className="mt-12 md:mt-20 mb-8 md:mb-10 border-gray-300" />
         
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[14px] text-[#6B7280] text-center md:text-left">
+          <p className="maindiv text-[14px] text-[#6B7280] text-center md:text-left">
             Copyright &copy; {new Date().getFullYear()} Nithub. All rights reserved.
           </p>
         </div>

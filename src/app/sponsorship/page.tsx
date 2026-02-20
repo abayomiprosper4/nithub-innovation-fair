@@ -128,7 +128,11 @@ export default function SponsorshipPage() {
               ))}
             </ul>
             <div className="mt-12">
-              <PrimaryBtn label="Download Sponsorship Deck" href="#" />
+              <PrimaryBtn
+                label="Download Sponsorship Deck"
+                href="/Documents/sponsorship-deck.pdf"
+                download="Sponsorship-Deck.pdf"
+              />
             </div>
           </div>
           <div className="relative">
@@ -178,7 +182,7 @@ export default function SponsorshipPage() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-32">
+      <section className="bg-white py-32">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20">
           <div>
             <h2 className="text-5xl font-bold text-gray-900 leading-tight">

@@ -9,6 +9,7 @@ import PrimaryBtn from "@/Components/PrimaryBtn";
 import Attendee from "@/Components/Attendee";
 import Persons from "@/Components/Persons";
 import Sponsors from "@/Components/Sponsors";
+import Numbers from "@/Components/Numbers";
 
 export default function Home() {
   const fadeInUp = {
@@ -67,7 +68,11 @@ export default function Home() {
               {...fadeInLeft}
               transition={{ duration: 0.7, delay: 0.5 }}
             >
-              <PrimaryBtn label={"Download Sponsorship Deck"} href={""} />
+              <PrimaryBtn
+                label={"Download Sponsorship Deck"}
+                href="/Documents/sponsorship-deck.pdf"
+                download="Sponsorship-Deck.pdf"
+              />
             </motion.div>
           </div>
 
@@ -147,6 +152,7 @@ export default function Home() {
         {/* <Persons /> */}
       </motion.div>
       <Sponsors />
+      <Numbers /> 
       <Footer />
     </main>
   );

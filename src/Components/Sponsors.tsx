@@ -26,7 +26,6 @@ const SponsorCard = ({ src, alt }: { src: string; alt: string }) => (
 );
 
 export default function Sponsors() {
-  // ... (Your existing sponsor data arrays remain unchanged) ...
   const platinumSponsors = [
     { src: "/Images/nithub-logo.svg", alt: "nithub" },
      { src: "/Images/logo2.png", alt: "sponsor 2" },
@@ -103,7 +102,7 @@ export default function Sponsors() {
   ];
 
   return (
-    <section className="w-full bg-neutral-50 py-20 my-10 overflow-hidden">
+    <section className="w-full bg-[#F3F4F6] py-20 mt-10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 space-y-20">
         
         {sponsorTiers.map((tier, tierIdx) => (
