@@ -112,8 +112,8 @@ export default function Attendee() {
 
           <div className="flex flex-col items-center">
             <div className="rounded-3xl overflow-hidden shadow-2xl mb-8 w-full border border-gray-100">
-              <Image
-                src="/Images/WhatsApp Image 2026-01-21 at 12.18.34(6).jpeg"
+              <img
+                src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597489/WhatsApp_Image_2026-01-21_at_12.18.34_6_c6awvj.jpg?_s=public-apps"
                 alt="People networking"
                 width={700}
                 height={400}

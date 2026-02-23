@@ -7,9 +7,9 @@ import "./HeroModule.css";
 
 const Hero = () => {
   const originalImages = [
-    "/Images/WhatsApp Image 2026-01-21 at 12.18.29(2).jpeg",
-    "/Images/WhatsApp Image 2026-01-21 at 12.18.28.jpeg",
-    "/Images/WhatsApp Image 2026-01-21 at 12.18.28(1).jpeg",
+    "https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597488/WhatsApp_Image_2026-01-21_at_12.18.29_2_hxsulh.jpg?_s=public-apps",
+    "https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597487/WhatsApp_Image_2026-01-21_at_12.18.28_co50e3.jpg?_s=public-apps",
+    "https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597483/WhatsApp_Image_2026-01-21_at_12.18.28_1_dgdwxg.jpg?_s=public-apps",
   ];
 
   const images = [...originalImages, originalImages[0]];
@@ -28,15 +28,15 @@ const Hero = () => {
     <section className="mainhero z-1 px-6 md:px-[6.25vw] 2xl:mx-auto max-w-7xl mx-auto mt-30 overflow-hidden">
       <div>
         <div className="flex flex-col lg:flex-row justify-between items-center gap-10 lg:gap-[10vh]">
-          
           <div className="w-full lg:basis-[45%] relative mt-8 lg:mt-0 text-center lg:text-left">
             <div
               className="absolute top-[5%] -left-[10%] w-[50vw] lg:w-[20vw] h-[50vw] lg:h-[20vw] rounded-full blur-[30px] -z-10"
               style={{
-                background: "radial-gradient(circle at center, rgba(25, 231, 54, 0.7) 0%, rgba(0,0, 0, 0) 80%)",
+                background:
+                  "radial-gradient(circle at center, rgba(25, 231, 54, 0.7) 0%, rgba(0,0, 0, 0) 80%)",
               }}
             ></div>
-            <motion.div 
+            <motion.div
               className="mb-0 text-4xl sm:text-5xl lg:text-[63px] tracking-tight lg:tracking-[-3px] font-medium w-full lg:w-[200%] lg:-mr-12.5 relative z-20"
               initial="initial"
               animate="animate"
@@ -58,7 +58,7 @@ const Hero = () => {
                 Shaping the future
               </h1>
             </motion.div>
-            <motion.p 
+            <motion.p
               className="m-0 text-lg sm:text-xl lg:text-[28px] leading-relaxed lg:leading-9 font-normal lg:tracking-[-1px] whitespace-normal"
               initial="initial"
               animate="animate"
@@ -70,7 +70,7 @@ const Hero = () => {
               unveil the next phase of impact.
             </motion.p>
           </div>
-          <motion.div 
+          <motion.div
             className="w-full lg:basis-[55%] relative"
             initial="initial"
             animate="animate"
@@ -96,7 +96,7 @@ const Hero = () => {
           </motion.div>
         </div>
         <div className="mt-4 lg:mt-2 mb-7.5 flex flex-col items-center lg:items-start">
-          <motion.div 
+          <motion.div
             className="flex flex-col sm:flex-row flex-wrap items-center lg:items-start justify-center lg:justify-start mt-6 mb-6 gap-4 sm:gap-9"
             initial="initial"
             animate="animate"
@@ -104,19 +104,31 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
           >
             <div className="flex text-base lg:text-lg tracking-[-1px] text-[#232323] font-normal items-center">
-              <img src="/Images/location.svg" alt="Location" className="mr-2 w-6 lg:w-7" />
+              <img
+                src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597468/location_uszdxu.jpg?_s=public-apps"
+                alt="Location"
+                className="mr-2 w-6 lg:w-7"
+              />
               <span>University of Lagos</span>
             </div>
             <div className="flex text-base lg:text-lg tracking-[-1px] text-[#232323] font-normal items-center">
-              <img src="/Images/calendar-2.svg" alt="Date" className="mr-2 w-6 lg:w-7" />
+              <img
+                src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597460/calendar-2_zuhfby.jpg?_s=public-apps"
+                alt="Date"
+                className="mr-2 w-6 lg:w-7"
+              />
               <span>March 2026</span>
             </div>
             <div className="flex text-base lg:text-lg tracking-[-1px] text-[#232323] font-normal items-center">
-              <img src="/Images/clock.svg" alt="Time" className="mr-2 w-6 lg:w-7" />
+              <img
+                src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597463/clock_dmlhgc.jpg?_s=public-apps"
+                alt="Time"
+                className="mr-2 w-6 lg:w-7"
+              />
               <span>10:00 AM - 4:00 PM (Daily)</span>
             </div>
           </motion.div>
-          <motion.div 
+          <motion.div
             className="flex flex-col sm:flex-row gap-4 items-center w-full sm:w-auto"
             initial="initial"
             animate="animate"

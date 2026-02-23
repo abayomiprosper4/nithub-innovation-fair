@@ -34,13 +34,12 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Image Section */}
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
             <div className="relative inline-block">
               <div className="absolute top-4 left-4 w-full h-full bg-[#62CF3A] rounded-4xl -z-10" />
               <div className="relative z-10 bg-white rounded-4xl overflow-hidden shadow-lg">
                 <img
-                  src="/Images/aboutimage.png"
+                  src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597463/DSC07843_ddafdj.jpg?_s=public-apps"
                   alt="Nithub Demo Day presentation"
                   width={600}
                   height={500}

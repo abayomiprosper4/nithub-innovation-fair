@@ -41,7 +41,7 @@ export default function Persons() {
       <section className="relative w-full font-sans overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-60 pointer-events-none">
           <img 
-            src="/Images/Banner full page.png" 
+            src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597491/Banner_full_page_k4kvjd.jpg?_s=public-apps" 
             alt="banner background" 
             className="w-full h-full object-cover object-center"
           />

@@ -145,7 +145,7 @@ const InterestPage = () => {
           <div className="hidden md:flex justify-center items-center relative">
             <div className="absolute w-100 h-100 bg-[#63D449]/10 rounded-full blur-[80px]" />
             <div className="relative">
-              <img src="/Images/Card2.svg" alt="Register Interest Graphic" className="w-80 md:w-96 lg:w-full" />
+              <img src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597462/Card2_diql2w.jpg?_s=public-apps" alt="Register Interest Graphic" className="w-80 md:w-96 lg:w-full" />
             </div>
           </div>
         </div>

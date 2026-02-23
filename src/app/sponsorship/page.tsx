@@ -137,8 +137,8 @@ export default function SponsorshipPage() {
           </div>
           <div className="relative">
             <div className="rounded-[2.5rem] overflow-hidden shadow-2xl ring-1 ring-black/5">
-              <Image
-                src="/Images/WhatsApp Image 2026-01-21 at 12.18.28(1).jpeg"
+              <img
+                src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597483/WhatsApp_Image_2026-01-21_at_12.18.28_1_dgdwxg.jpg?_s=public-apps"
                 alt="Sponsors"
                 width={800}
                 height={600}
@@ -266,8 +266,8 @@ export default function SponsorshipPage() {
             </form>
           </div>
           <div className="hidden lg:flex items-center justify-end">
-            <Image
-              src="/Images/Card.svg"
+            <img
+              src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597460/Card_uhonvp.jpg?_s=public-apps"
               alt="Illustration"
               width={500}
               height={500}

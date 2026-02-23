@@ -148,7 +148,7 @@ export default function Persons() {
         transition={{ duration: 1, delay: 0.5 }}
       >
         <img 
-          src="/Images/Banner full page.png" 
+          src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597491/Banner_full_page_k4kvjd.jpg?_s=public-apps" 
           alt="banner" 
           className="w-full h-full object-cover opacity-80"
         />
@@ -168,7 +168,7 @@ export default function Persons() {
               className="group relative h-112.5 w-full rounded-[2.5rem] border-2 border-black overflow-hidden bg-[#D6FBC4] transition-transform duration-300 hover:-translate-y-1"
             >
               <div className="absolute inset-0 h-[80%] w-full flex items-end justify-center overflow-hidden z-0">
-                <Image
+                <img
                   src={speaker.src}
                   alt={speaker.alt}
                   width={400}

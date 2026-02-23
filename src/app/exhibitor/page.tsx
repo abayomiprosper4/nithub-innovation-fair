@@ -71,7 +71,6 @@ export default function ExhibitorPage() {
     <div>
       <Navbar />
 
-      {/* Success Modal */}
       <AnimatePresence>
         {success && (
           <motion.div
@@ -202,7 +201,7 @@ export default function ExhibitorPage() {
 
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              <img src="/Images/flash.svg" alt="flash" />
+              <img src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597462/flash_z9vzcp.jpg?_s=public-apps" alt="flash" />
             </div>
           </div>
         </div>

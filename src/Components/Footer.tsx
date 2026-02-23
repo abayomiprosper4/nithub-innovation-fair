@@ -27,7 +27,7 @@ export default function Footer() {
           <div className="w-full lg:w-[35%]">
             <div className="mb-6 md:mb-8">
               <img
-                src="/Images/nithub-logo.svg"
+                src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597480/nithub-logo_yme9a6.jpg?_s=public-apps"
                 alt="Logo"
                 className="h-8 md:h-10 w-auto"
               />

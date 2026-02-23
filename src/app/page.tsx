@@ -82,13 +82,12 @@ export default function Home() {
               {...fadeInUp}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <Image
-                src="/Images/DSC07811.png"
+              <img
+                src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597467/DSC07811_pkfh1h.jpg?_s=public-apps"
                 alt="NITHUB Innovation Fair"
                 width={700}
                 height={500}
                 className="object-cover w-full h-full"
-                priority
               />
             </motion.div>
 
@@ -152,7 +151,7 @@ export default function Home() {
         {/* <Persons /> */}
       </motion.div>
       <Sponsors />
-      <Numbers /> 
+      <Numbers />
       <Footer />
     </main>
   );
