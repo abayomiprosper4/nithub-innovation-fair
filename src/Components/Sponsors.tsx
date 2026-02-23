@@ -4,6 +4,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronDown } from "react-icons/fi";
 
+interface Sponsor {
+  src: string;
+  alt: string;
+}
+
 const RotatingTrophy = ({ bgColor }: { bgColor: string }) => (
   <motion.span
     className="inline-block ml-4 text-[30px] rounded-full py-2 px-1 origin-center"
@@ -19,21 +24,30 @@ const RotatingTrophy = ({ bgColor }: { bgColor: string }) => (
   </motion.span>
 );
 
-const SponsorCard = ({ src, alt, index }: { src: string; alt: string; index: number }) => (
+// 2. Updated SponsorCard to handle empty states (placeholders)
+const SponsorCard = ({ src, alt, index, isPlaceholder = false }: { src?: string; alt?: string; index: number; isPlaceholder?: boolean }) => (
   <motion.div 
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay: index * 0.05 }}
-    className="flex items-center justify-center bg-white h-32 border border-gray-100 p-6 transition-transform hover:scale-105"
+    className={`flex items-center justify-center h-32 border p-6 transition-transform ${
+      isPlaceholder 
+        ? "bg-gray-50/50 border-dashed border-gray-200" // Style for empty boxes
+        : "bg-white border-gray-100 hover:scale-105 shadow-sm" // Style for real sponsors
+    }`}
   >
-    <img src={src} alt={alt} className="max-h-full max-w-full object-contain" />
+    {!isPlaceholder && src ? (
+      <img src={src} alt={alt} className="max-h-full max-w-full object-contain" />
+    ) : (
+      <span className="text-gray-300 text-xs font-medium uppercase tracking-widest">Coming Soon</span>
+    )}
   </motion.div>
 );
 
 export default function Sponsors() {
   const [openTiers, setOpenTiers] = useState<Record<string, boolean>>({
-    "Platinum Sponsors": false,
+    "Platinum Sponsors": true, // Kept open by default to show the grid
   });
 
   const toggleTier = (title: string) => {
@@ -43,10 +57,13 @@ export default function Sponsors() {
     }));
   };
 
-  const platinumSponsors = Array(12).fill({ src: "/Images/nithub-logo.svg", alt: "nithub" });
-  const diamondSponsors = Array(12).fill({ src: "/Images/logo2.png", alt: "sponsor" });
-  const goldSponsors = Array(12).fill({ src: "/Images/logo3.png", alt: "sponsor" });
-  const silverSponsors = Array(12).fill({ src: "/Images/logo4.png", alt: "sponsor" });
+  // 3. DATA SECTION: Add your sponsors here when available
+  const platinumSponsors: Sponsor[] = [
+    // Example: { src: "/Images/nithub-logo.svg", alt: "Nithub" },
+  ];
+  const diamondSponsors: Sponsor[] = [];
+  const goldSponsors: Sponsor[] = [];
+  const silverSponsors: Sponsor[] = [];
 
   const tierColors: Record<string, string> = {
     "Platinum Sponsors": "#E5E4E2",
@@ -68,6 +85,11 @@ export default function Sponsors() {
         
         {sponsorTiers.map((tier, tierIdx) => {
           const isOpen = openTiers[tier.title];
+          
+          // 4. GRID LOGIC: If data is empty, create an array of 6 placeholders
+          const displayData = tier.data.length > 0 
+            ? tier.data 
+            : Array(6).fill(null); 
 
           return (
             <div key={tierIdx} className="border-b border-gray-200 pb-6">
@@ -97,9 +119,16 @@ export default function Sponsors() {
                     transition={{ duration: 0.4, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
+                    {/* The 6-column grid is maintained here */}
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 pt-8">
-                      {tier.data.map((logo, index) => (
-                        <SponsorCard key={index} index={index} src={logo.src} alt={logo.alt} />
+                      {displayData.map((logo, index) => (
+                        <SponsorCard 
+                          key={index} 
+                          index={index} 
+                          src={logo?.src} 
+                          alt={logo?.alt} 
+                          isPlaceholder={!logo} // If logo is null, it's a placeholder
+                        />
                       ))}
                     </div>
                   </motion.div>

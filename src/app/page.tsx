@@ -125,7 +125,7 @@ export default function Home() {
         viewport={{ once: true }}
         transition={{ duration: 1 }}
       >
-        <Image
+        <img
           src="/Images/Event overview section.svg"
           alt="Event Overview"
           width={1920}
