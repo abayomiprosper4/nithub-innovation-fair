@@ -83,7 +83,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <img
-                src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597467/DSC07811_pkfh1h.jpg?_s=public-apps"
+                src="/Images/DSC07811.png"
                 alt="NITHUB Innovation Fair"
                 width={700}
                 height={500}
@@ -126,7 +126,7 @@ export default function Home() {
         transition={{ duration: 1 }}
       >
         <img
-          src="/Images/Event overview section.svg"
+          src="/Images/event-overview-section.svg"
           alt="Event Overview"
           width={1920}
           height={1080}

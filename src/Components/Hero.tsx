@@ -7,9 +7,9 @@ import "./HeroModule.css";
 
 const Hero = () => {
   const originalImages = [
-    "https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597488/WhatsApp_Image_2026-01-21_at_12.18.29_2_hxsulh.jpg?_s=public-apps",
-    "https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597487/WhatsApp_Image_2026-01-21_at_12.18.28_co50e3.jpg?_s=public-apps",
-    "https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597483/WhatsApp_Image_2026-01-21_at_12.18.28_1_dgdwxg.jpg?_s=public-apps",
+    "/Images/12.18.29(2).jpeg",
+    "/Images/12.18.28.jpeg",
+    "/Images/12.18.28(1).jpeg",
   ];
 
   const images = [...originalImages, originalImages[0]];

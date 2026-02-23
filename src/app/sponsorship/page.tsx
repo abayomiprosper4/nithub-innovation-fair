@@ -138,7 +138,7 @@ export default function SponsorshipPage() {
           <div className="relative">
             <div className="rounded-[2.5rem] overflow-hidden shadow-2xl ring-1 ring-black/5">
               <img
-                src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597483/WhatsApp_Image_2026-01-21_at_12.18.28_1_dgdwxg.jpg?_s=public-apps"
+                src="/Images/12.18.28(1).jpeg"
                 alt="Sponsors"
                 width={800}
                 height={600}

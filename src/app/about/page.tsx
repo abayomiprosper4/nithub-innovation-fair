@@ -63,7 +63,7 @@ export default function AboutPage() {
                   <div className="absolute top-4 left-4 w-full h-full bg-[#62CF3A] rounded-4xl -z-10" />
                   <div className="relative z-10 bg-white rounded-4xl overflow-hidden shadow-lg">
                     <img
-                      src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597489/WhatsApp_Image_2026-01-21_at_12.18.33_4_qtvow7.jpg?_s=public-apps"
+                      src="/Images/12.18.33(4).jpeg"
                       alt="Nithub Demo Day presentation"
                       width={600}
                       height={800}
