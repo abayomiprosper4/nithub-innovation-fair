@@ -9,6 +9,7 @@ import PrimaryBtn from "@/Components/PrimaryBtn";
 import Attendee from "@/Components/Attendee";
 import Persons from "@/Components/Persons";
 import Sponsors from "@/Components/Sponsors";
+import { IMAGES } from "@/utils/assets";
 import Numbers from "@/Components/Numbers";
 
 export default function Home() {
@@ -37,7 +38,7 @@ export default function Home() {
             <motion.h2
               className="text-4xl md:text-center lg:text-left sm:text-center lg:text-5xl lg:pl-6 mt-6 space-y-6 font-bold text-black leading-tight"
               {...fadeInUp}
-              transition={{ duration: 0.7 }}
+              transition={{ duration: 0.5 }}
             >
               About the Event
             </motion.h2>
@@ -45,7 +46,7 @@ export default function Home() {
             <motion.div
               className="mt-6 space-y-4 leading-normal text-black text-lg lg:text-2xl lg:pl-6"
               {...fadeInUp}
-              transition={{ duration: 0.7, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
             >
               The NITHUB 5th Year Anniversary & Innovation Fair is a two-day
               innovation festival celebrating five years of impact by the
@@ -55,7 +56,7 @@ export default function Home() {
             <motion.div
               className="mt-2 space-y-4 leading-normal text-black text-lg lg:text-2xl lg:pl-6"
               {...fadeInUp}
-              transition={{ duration: 0.7, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
             >
               The event brings together student innovators, startups,
               researchers, corporates, investors, and policymakers to explore
@@ -66,7 +67,7 @@ export default function Home() {
             <motion.div
               className="mt-10 inline-flex items-center rounded-full px-0 lg:px-6 py-3 text-white font-semibold transition"
               {...fadeInLeft}
-              transition={{ duration: 0.7, delay: 0.5 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
             >
               <PrimaryBtn
                 label={"Download Sponsorship Deck"}
@@ -80,10 +81,10 @@ export default function Home() {
             <motion.div
               className="overflow-hidden rounded-2xl shadow-xl aspect-video lg:aspect-auto"
               {...fadeInUp}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <img
-                src="/Images/DSC07811.png"
+              <Image
+                src={IMAGES.aboutImg}
                 alt="NITHUB Innovation Fair"
                 width={700}
                 height={500}
@@ -96,7 +97,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.4, delay: 0.4 }}
             >
               <ul className="space-y-3 text-gray-800 text-base">
                 {[
@@ -125,8 +126,8 @@ export default function Home() {
         viewport={{ once: true }}
         transition={{ duration: 1 }}
       >
-        <img
-          src="/Images/event-overview-section.svg"
+        <Image
+          src={IMAGES.overview}
           alt="Event Overview"
           width={1920}
           height={1080}

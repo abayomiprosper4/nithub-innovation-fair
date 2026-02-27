@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import PrimaryBtn from "@/Components/PrimaryBtn";
+import { IMAGES } from "@/utils/assets";
 import SecondaryBtn from "@/Components/SecondaryBtn";
 import { motion } from "framer-motion";
 
@@ -112,8 +113,8 @@ export default function Attendee() {
 
           <div className="flex flex-col items-center">
             <div className="rounded-3xl overflow-hidden shadow-2xl mb-8 w-full border border-gray-100">
-              <img
-                src="/Im  ages/12.18.34(6).jpeg"
+              <Image
+                src={IMAGES.attendee}
                 alt="People networking"
                 width={700}
                 height={400}

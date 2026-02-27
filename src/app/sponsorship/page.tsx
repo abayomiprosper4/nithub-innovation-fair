@@ -7,6 +7,7 @@ import confetti from "canvas-confetti";
 import PrimaryBtn from "@/Components/PrimaryBtn";
 import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
+import { IMAGES } from "@/utils/assets";
 
 export default function SponsorshipPage() {
   const [formData, setFormData] = useState({
@@ -107,11 +108,11 @@ export default function SponsorshipPage() {
             <h1 className="text-5xl lg:text-5xl font-bold text-[#0F172A] leading-[1.1] tracking-tight">
               Why Sponsor This Event?
             </h1>
-            <p className="mt-8 text-lg text-gray-600 leading-relaxed max-w-lg">
+            <p className="mt-8 text-lg font-semibold text-gray-600 leading-relaxed max-w-lg">
               Partnering with the NITHUB 5th Year Anniversary & Innovation Fair
               offers sponsors:
             </p>
-            <ul className="mt-8 space-y-4">
+            <ul className="mt-8 font-semibold space-y-4">
               {[
                 "Access to emerging talent and startups",
                 "Early visibility into innovation and deal-flow",
@@ -122,7 +123,7 @@ export default function SponsorshipPage() {
                   key={i}
                   className="flex items-center gap-3 text-gray-700 text-lg"
                 >
-                  <span className="w-1.5 h-1.5 bg-gray-900 rounded-full" />{" "}
+                  <span className="w-1.5 h-1.5 bg-gray-900 rounded-full" />
                   {item}
                 </li>
               ))}
@@ -135,23 +136,31 @@ export default function SponsorshipPage() {
               />
             </div>
           </div>
+
           <div className="relative">
             <div className="rounded-[2.5rem] overflow-hidden shadow-2xl ring-1 ring-black/5">
-              <img
-                src="/Images/12.18.28(1).jpeg"
+              <Image
+                src={IMAGES.collab}
                 alt="Sponsors"
                 width={800}
                 height={600}
                 className="w-full h-auto object-cover"
               />
             </div>
-
             <motion.div
               initial={{ x: 50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
-              className="absolute -bottom-30 -left-6 lg:left-25  bg-white p-8 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.12)] border border-gray-50 w-[90%] sm:w-100 z-20"
+              transition={{ duration: 0.4 }}
+              className="
+              absolute md:left-4 md:right-4 md:bottom-6
+              lg:-bottom-28 lg:left-30 lg:right-auto
+             bg-white p-6 sm:p-8 rounded-3xl
+              shadow-[0_20px_50px_rgba(0,0,0,0.12)]
+              border border-gray-50
+              max-w-md w-auto z-20
+              "
             >
-              <div className="space-y-4">
+              <div className="space-y-2">
                 {[
                   ["Platinum Sponsor", "₦10,000,000"],
                   ["Diamond Sponsor", "₦7,000,000"],
@@ -182,63 +191,67 @@ export default function SponsorshipPage() {
         </div>
       </section>
 
-      <section className="bg-white py-32">
+      <section className="bg-gray-100 mt-20 py-32">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20">
           <div>
-            <h2 className="text-5xl font-bold text-gray-900 leading-tight">
+            <h2 className="text-5xl font-semibold text-gray-900 leading-tight">
               Partner With Nithub
             </h2>
-            <p className="mt-6 text-lg text-gray-600 mb-12">
-              Join the movement shaping Nigeria's tech future.
+            <p className="mt-6 text-xl font-semibold text-gray-700 mb-12">
+              Tell us about your organization and how you would like to partner
+              with the NITHUB 5th Year Anniversary & Innovation Fair.
             </p>
+
             <form onSubmit={handleSubmit} className="space-y-4 max-w-xl">
+              <div className="mb-1 font-normal">Full Name</div>
               <input
                 required
                 placeholder="Full name"
-                className="w-full px-6 py-4 rounded-2xl border-none ring-1 ring-gray-200 focus:ring-2 focus:ring-[#62CF3A] outline-none transition-all"
+                className="w-full px-6 py-2 rounded-lg border-none ring-1 ring-gray-300 focus:ring-2 focus:ring-[#62CF3A] outline-none transition-all" 
                 value={formData.name}
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
                 }
               />
+              <div className="mb-1 font-normal">Email</div>
               <input
                 required
                 type="email"
-                placeholder="Email"
-                className="w-full px-6 py-4 rounded-2xl border-none ring-1 ring-gray-200 focus:ring-2 focus:ring-[#62CF3A] outline-none transition-all"
+                className="w-full px-6 py-2 rounded-lg border-none ring-1 ring-gray-300 focus:ring-2 focus:ring-[#62CF3A] outline-none transition-all"
                 value={formData.email}
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
                 }
               />
+              <div className="mb-1 font-normal">Phone Number</div>
               <input
                 required
                 type="phone"
-                placeholder="Phone"
-                className="w-full px-6 py-4 rounded-2xl border-none ring-1 ring-gray-200 focus:ring-2 focus:ring-[#62CF3A] outline-none transition-all"
+                className="w-full px-6 py-2 rounded-lg border-none ring-1 ring-gray-300 focus:ring-2 focus:ring-[#62CF3A] outline-none transition-all"
                 value={formData.phone}
                 onChange={(e) =>
                   setFormData({ ...formData, phone: e.target.value })
                 }
               />
+              <div className="mb-1 font-normal">Organization</div>
               <input
                 required
-                placeholder="Organization"
-                className="w-full px-6 py-4 rounded-2xl border-none ring-1 ring-gray-200 focus:ring-2 focus:ring-[#62CF3A] outline-none transition-all"
+                className="w-full px-6 py-2 rounded-lg border-none ring-1 ring-gray-300 focus:ring-2 focus:ring-[#62CF3A] outline-none transition-all"
                 value={formData.organization}
                 onChange={(e) =>
                   setFormData({ ...formData, organization: e.target.value })
                 }
               />
+              <div className="mb-1 font-normal">Sponsorship Interest</div>
               <select
                 required
-                className="w-full px-6 py-4 rounded-2xl border-none ring-1 ring-gray-200 focus:ring-2 focus:ring-[#62CF3A] outline-none transition-all text-gray-500 bg-white"
+                className="w-full px-8 py-2 rounded-lg border-none ring-1 ring-gray-300 focus:ring-2 focus:ring-[#62CF3A] outline-none transition-all text-gray-500"
                 value={formData.interest}
                 onChange={(e) =>
                   setFormData({ ...formData, interest: e.target.value })
                 }
               >
-                <option value="">Select sponsorship interest</option>
+                <option value=""></option>
                 <option value="Platinum Sponsor">Platinum Sponsor</option>
                 <option value="Diamond Sponsor">Diamond Sponsor</option>
                 <option value="Gold Sponsor">Gold Sponsor</option>
@@ -247,15 +260,16 @@ export default function SponsorshipPage() {
                 <option value="Deal Room Sponsor">Deal Room Sponsor</option>
                 <option value="In-Kind Partner">In-Kind Partner</option>
               </select>
+              <div className="mb-1 font-normal">Message</div>
               <textarea
-                placeholder="Message"
                 rows={4}
-                className="w-full px-6 py-4 rounded-2xl border-none ring-1 ring-gray-200 focus:ring-2 focus:ring-[#62CF3A] outline-none transition-all"
+                className="w-full px-6 py-4 rounded-2xl border-none ring-1 ring-gray-300 focus:ring-2 focus:ring-[#62CF3A] outline-none transition-all"
                 value={formData.message}
                 onChange={(e) =>
                   setFormData({ ...formData, message: e.target.value })
                 }
               />
+
               <div className="pt-4">
                 <PrimaryBtn
                   label={loading ? "Processing..." : "Register"}
@@ -265,6 +279,7 @@ export default function SponsorshipPage() {
               </div>
             </form>
           </div>
+
           <div className="hidden lg:flex items-center justify-end">
             <img
               src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597460/Card_uhonvp.jpg?_s=public-apps"
@@ -276,7 +291,6 @@ export default function SponsorshipPage() {
           </div>
         </div>
       </section>
-
       <Footer />
     </main>
   );

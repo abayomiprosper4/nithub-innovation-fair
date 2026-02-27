@@ -1,15 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { IMAGES } from "@/utils/assets";
 import PrimaryBtn from "./PrimaryBtn";
+import Image from "next/image";
 import SecondaryBtn from "./SecondaryBtn";
 import "./HeroModule.css";
 
 const Hero = () => {
   const originalImages = [
-    "/Images/12.18.29(2).jpeg",
-    "/Images/12.18.28.jpeg",
-    "/Images/12.18.28(1).jpeg",
+    IMAGES.hero1,
+    IMAGES.hero2,
+    IMAGES.hero3,
   ];
 
   const images = [...originalImages, originalImages[0]];
@@ -84,9 +86,11 @@ const Hero = () => {
                 style={{ "--count": images.length } as React.CSSProperties}
               >
                 {images.map((src, index) => (
-                  <img
+                  <Image
                     key={index}
                     src={src}
+                    width={700}
+                    height={500}
                     alt={`Slide ${index}`}
                     className="slide object-cover w-full h-full"
                   />

@@ -1,13 +1,14 @@
 import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
 import Image from "next/image";
+import { IMAGES } from "@/utils/assets";
 
 export default function AboutPage() {
   return (
-    <main className="maindiv min-h-screen font-sans">
+    <main className="maindiv bg-linear-to-br from-gray-white via-gray-100 to-white min-h-screen font-sans">
       <Navbar />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-20">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:pt-20 lg:pb-50">
         <div className="mt-10">
           <h1 className="text-4xl md:text-5xl mb-8 md:mb-12 font-bold text-gray-900 text-center lg:text-left">
             About Nithub
@@ -60,13 +61,12 @@ export default function AboutPage() {
             <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
               <div className="relative inline-block">
                 <div className="relative">
-                  <div className="absolute top-4 left-4 w-full h-full bg-[#62CF3A] rounded-4xl -z-10" />
-                  <div className="relative z-10 bg-white rounded-4xl overflow-hidden shadow-lg">
-                    <img
-                      src="/Images/12.18.33(4).jpeg"
+                  <div className="relative z-10 rounded-4xl overflow-hidden shadow-lg">
+                    <Image
+                      src={IMAGES.abtpage}
                       alt="Nithub Demo Day presentation"
-                      width={600}
-                      height={800}
+                      width={700}
+                      height={900}
                       className="object-cover w-full aspect-square"
                     />
                   </div>

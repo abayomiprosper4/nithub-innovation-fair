@@ -7,7 +7,6 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { companyName, contactPerson, email, category, description } = body;
 
-    // Validate required fields
     if (!companyName || !contactPerson || !email || !category) {
       return NextResponse.json(
         { error: "Missing required fields" },
@@ -15,22 +14,22 @@ export async function POST(req: Request) {
       );
     }
 
-    // 🔴 IMPORTANT: Replace this with the Web App URL for your EXHIBITOR Google Sheet script
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxjf5zPPvYTEiT63TTJZKsNt8EVaPnlHsF2KTgVVmzHu5FTt4O3JFFTsAdiAcWZjAlW7Q/exec";
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby9ZIhbgyOuc6mRKf7qPUBBUe2XjEEOS-TrP82wqm7xT1YRMkwNnG09AGVXVzCj4r4/exec";
 
-    const response = await fetch(GOOGLE_SCRIPT_URL, {
-      method: "POST",
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify({
-        companyName,
-        contactPerson,
-        email,
-        category,
-        description: description || "No description provided",
-        timestamp: new Date().toISOString(),
-      }),
-      redirect: "follow",
-    });
+const response = await fetch(GOOGLE_SCRIPT_URL, {
+  method: "POST",
+  headers: { "Content-Type": "text/plain;charset=utf-8" }, 
+  body: JSON.stringify({
+    companyName,
+    contactPerson,
+    email,
+    category,
+    description: description || "No description provided",
+    timestamp: new Date().toISOString(),
+  }),
+  redirect: "follow",
+  cache: "no-cache", 
+});
 
     const text = await response.text();
     let result;

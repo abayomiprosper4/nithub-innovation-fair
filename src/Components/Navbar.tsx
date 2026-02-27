@@ -1,5 +1,7 @@
 "use client";
 
+import {IMAGES} from "@/utils/assets";
+import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -27,15 +29,16 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="maindiv bg-[#fafafa]/70 backdrop-blur-xs border-b border-white/20 fixed w-full z-50">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-16">
-        <div className="flex items-center">
+    <nav className="maindiv bg-[#F2F2F74D]/30 backdrop-blur-xl border-b border-white/20 fixed w-full z-50">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-16">
+        <div className="flex items-center w-auto h-auto">
           <Link href="/">
-            <img
-              src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597480/nithub-logo_yme9a6.jpg?_s=public-apps"
+            <Image
+              src={IMAGES.nithubLogo}
               alt="Nithub Logo"
-              width={120}
-              height={40}
+              width={100}
+              height={100}
+              loading="eager"
             />
           </Link>
         </div>
@@ -67,7 +70,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute top-20 left-0 w-full bg-white shadow-lg py-6 px-6 flex flex-col gap-4 lg:hidden border-t">
+        <div className="absolute top-20 text-center left-0 w-full bg-white shadow-lg py-6 px-6 flex flex-col gap-4 lg:hidden border-t">
           {navLinks.map((link) => (
             <Link
               key={link.name}

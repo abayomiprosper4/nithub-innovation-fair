@@ -18,13 +18,13 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full bg-[#F2F2F7] pt-20 font-sans">
+    <footer className="w-full bg-[#1F2937] pt-20 font-sans">
       <div className="max-w-7xl mx-auto px-6 lg:px-1">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-y-12 lg:gap-x-4">
 <div className="lg:col-span-2 max-w-md flex flex-col">
 <div className="mb-8 w-auto h-auto">
               <Image
-                src={IMAGES.nithubLogo}
+                src={IMAGES.nitwhite}
                 alt="Nithub Logo"
                 width={120}
                 height={40}
@@ -33,7 +33,7 @@ export default function Footer() {
               />
             </div>
 <div className="mt-6">
-  <p className="text-[20px] md:text-[24px] text-justify text-[#1F2937] leading-normal font-medium tracking-tight">
+  <p className="text-[20px] md:text-[24px] text-justify text-[#F2F2F7] leading-normal font-medium tracking-tight">
     Nithub is the official Innovation & Technology Hub of the
     University of Lagos, committed to nurturing innovation,
     entrepreneurship, and impact-driven solutions.
@@ -41,7 +41,7 @@ export default function Footer() {
 </div>
           </div>
 <div className="lg:pt-26 lg:pl-10">
-            <h4 className="text-black font-semibold mb-4 text-[17px] tracking-wide">
+            <h4 className="text-white font-semibold mb-4 text-[17px] tracking-wide">
               About
             </h4>
             <ul className="space-y-5 text-[16px] text-[#909092]">
@@ -59,7 +59,7 @@ export default function Footer() {
             </ul>
           </div>
 <div className="lg:pt-26">
-            <h4 className="text-black font-normal mb-4 text-[17px] tracking-wide">
+            <h4 className="text-white font-normal mb-4 text-[17px] tracking-wide">
               Register
             </h4>
             <ul className="space-y-5 text-[16px] text-[#909092]">
@@ -77,7 +77,7 @@ export default function Footer() {
             </ul>
           </div>
 <div className="lg:pt-26">
-            <h4 className="text-black font-semibold mb-4 text-[17px] tracking-wide">
+            <h4 className="text-white font-semibold mb-4 text-[17px] tracking-wide">
               Contact
             </h4>
             <div className="space-y-5 text-[15px] text-[#8E8E93] mb-6">
