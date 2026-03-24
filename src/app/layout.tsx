@@ -4,11 +4,6 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Nithub@5",
   description: "Nithub Innovation Fair at 5 - University of Lagos",
-  icons: {
-    icon: "/anniversary/icon.svg",
-    shortcut: "/anniversary/icon.svg",
-    apple: "/anniversary/icon.svg",
-  },
 };
 
 export default function RootLayout({
