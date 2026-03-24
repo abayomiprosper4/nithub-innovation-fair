@@ -16,7 +16,7 @@ export default function PrimaryBtn({
   download, 
 }: PrimaryBtnProps) {
   const baseClasses =
-    "inline-flex items-center cursor-pointer justify-center lg:text-md px-6 py-2 rounded-full text-white bg-[#62CF3A] hover:bg-[#4b9e2d] transition-all transform hover:scale-105 active:scale-95 duration-200 ease-in-out";
+    "inline-flex items-center text-[16px] cursor-pointer justify-center lg:text-md px-9 py-2 rounded-full text-white bg-[#62CF3A] hover:bg-black transition-all transform hover:scale-105 active:scale-95 duration-200 ease-in-out";
 
   const disabledClasses = disabled
     ? "opacity-60 cursor-not-allowed hover:scale-100 active:scale-100"

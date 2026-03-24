@@ -1,14 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 @import "tailwindcss";
 
+@keyframes marquee {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
 :root {
   --font-dm-sans: 'DM Sans', sans-serif;
+}
+
+.fontedit{
+  font-family: var(--font-dm-sans);
+}
+
+@keyframes arrowBounce {
+  0%   { transform: translate(0, 0); }
+  30%  { transform: translate(4px, -6px); }
+  60%  { transform: translate(2px, -2px); }
+  100% { transform: translate(0, 0); }
 }
 
 body {
   font-family: var(--font-dm-sans);
   font-weight: 300;
-  line-height: 1.5;
+  line-height: 1.5; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

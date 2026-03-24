@@ -20,7 +20,6 @@ export default function Gallery() {
     { src: IMAGES.people, id: "img-8" },
   ];
 
-  // Desktop Timer Logic
   useEffect(() => {
     if (isInView) {
       const timers = [

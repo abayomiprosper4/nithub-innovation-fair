@@ -59,7 +59,7 @@ export default function Footer() {
             </ul>
           </div>
 <div className="lg:pt-26">
-            <h4 className="text-black font-normal mb-4 text-[17px] tracking-wide">
+            <h4 className="text-black font-medium mb-4 text-[17px] tracking-wide">
               Register
             </h4>
             <ul className="space-y-5 text-[16px] text-[#909092]">
@@ -91,13 +91,13 @@ export default function Footer() {
 
             <div className="flex items-center gap-5 text-[#8E8E93]">
               <a
-                href="#"
+                href="https://www.linkedin.com/company/nithub/posts/?feedView=all"
                 className="hover:text-[#62CF3A] transition-transform hover:-translate-y-1"
               >
                 <FiLinkedin size={22} />
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/profile.php?id=61555262481803"
                 className="hover:text-[#62CF3A] transition-transform hover:-translate-y-1"
               >
                 <FiFacebook size={22} />
@@ -109,13 +109,13 @@ export default function Footer() {
                 <FaWhatsapp size={22} />
               </a>
               <a
-                href="#"
+                href="https://x.com/nithub_lag"
                 className="hover:text-[#62CF3A] transition-transform hover:-translate-y-1"
               >
                 <FaXTwitter size={22} />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/nithub_unilag/a"
                 className="hover:text-[#62CF3A] transition-transform hover:-translate-y-1"
               >
                 <FiInstagram size={22} />

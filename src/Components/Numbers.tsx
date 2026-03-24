@@ -14,8 +14,13 @@ interface CounterProps {
 }
 
 function Counter({ value }: CounterProps) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { 
+    once: true, 
+    margin: "-20px",
+    amount: "some" 
+  });
+  
   const count = useMotionValue(0);
   const rounded = useTransform(count, (latest) => Math.round(latest));
 

@@ -1,13 +1,37 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import confetti from "canvas-confetti";
 import PrimaryBtn from "@/Components/PrimaryBtn";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
 
 export default function ExhibitorPage() {
+  const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  } satisfies Variants;
+
+  const fadeInRight: Variants = {
+    hidden: { opacity: 0, x: 60 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
   const [formData, setFormData] = useState({
     companyName: "",
     contactPerson: "",
@@ -62,7 +86,7 @@ export default function ExhibitorPage() {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -91,7 +115,8 @@ export default function ExhibitorPage() {
                 Registration Confirmed!
               </h3>
               <p className="text-gray-500 mb-8">
-                We've received your exhibitor application. Our team will review it and get back to you shortly.
+                We've received your exhibitor application. Our team will review
+                it and get back to you shortly.
               </p>
               <button
                 onClick={() => setSuccess(false)}
@@ -104,10 +129,10 @@ export default function ExhibitorPage() {
         )}
       </AnimatePresence>
 
-      <main className="min-h-screen pt-30 bg-gray-50 py-7 flex items-center justify-center px-6">
+      <main className="min-h-screen pt-30 bg-linear-to-br from-[#FFFFFF] via-[#F2F2F7] to-[#F2F2F7] py-7 flex items-center justify-center px-6">
         <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <h1 className="text-4xl font-semibold text-gray-900">
+          <motion.div variants={fadeInUp} initial="hidden" animate="visible">
+            <h1 className="text-4xl lg:text-5xl text-center lg:text-left font-semibold text-gray-900">
               Exhibit at the Innovation Fair
             </h1>
             <p className="mt-3 text-gray-600 max-w-md">
@@ -147,7 +172,9 @@ export default function ExhibitorPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">Email</label>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">
+                  Email
+                </label>
                 <input
                   required
                   type="email"
@@ -189,21 +216,28 @@ export default function ExhibitorPage() {
               </div>
 
               <div>
-                <PrimaryBtn 
-                  label={loading ? "Registering..." : "Register"} 
+                <PrimaryBtn
+                  label={loading ? "Registering..." : "Register"}
                   href={undefined}
-                  type="submit" 
+                  type="submit"
                   disabled={loading}
                 />
               </div>
             </form>
-          </div>
+          </motion.div>
 
-          <div className="flex justify-center lg:justify-end">
+          <motion.div 
+          className="hidden lg:flex justify-center lg:justify-end"
+          variants={fadeInRight}
+          initial="hidden"
+          animate="visible">
             <div className="relative">
-              <img src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597462/flash_z9vzcp.jpg?_s=public-apps" alt="flash" />
+              <img
+                src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597462/flash_z9vzcp.jpg?_s=public-apps"
+                alt="flash"
+              />
             </div>
-          </div>
+          </motion.div>
         </div>
       </main>
       <Footer />

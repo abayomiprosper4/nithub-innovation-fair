@@ -4,6 +4,7 @@ import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { IMAGES } from "@/utils/assets";
 import { FiArrowUpRight } from "react-icons/fi";
 
 export default function Persons() {
@@ -147,8 +148,8 @@ export default function Persons() {
         variants={fadeIn}
         transition={{ duration: 1, delay: 0.5 }}
       >
-        <img 
-          src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597491/Banner_full_page_k4kvjd.jpg?_s=public-apps" 
+        <Image 
+          src={IMAGES.fullBanner} 
           alt="banner" 
           className="w-full h-full object-cover opacity-80"
         />

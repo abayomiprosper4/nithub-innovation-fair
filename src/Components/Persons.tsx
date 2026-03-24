@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { IMAGES } from "../utils/assets";
 import { FiArrowUpRight } from "react-icons/fi";
 import SpeakersHeader from "./SpeakersHeader";
 
@@ -40,8 +41,8 @@ export default function Persons() {
     <div className="bg-[#d9ffc6] min-h-screen">
       <section className="relative w-full font-sans overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-60 pointer-events-none">
-          <img 
-            src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597491/Banner_full_page_k4kvjd.jpg?_s=public-apps" 
+          <Image 
+            src={IMAGES.fullBanner}
             alt="banner background" 
             className="w-full h-full object-cover object-center"
           />

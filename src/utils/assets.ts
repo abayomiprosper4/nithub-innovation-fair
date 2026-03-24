@@ -9,7 +9,7 @@ import abtpage from "../../public/Images/abtpage.jpeg";
 import Calendar from "../../public/Images/calendar.svg";
 import Clock from "../../public/Images/clock.svg";
 import FlashIcon from "../../public/Images/flash.svg";
-import CoinIcon from "../../public/Images/coin.svg";
+import Coin from "../../public/Images/coin.svg";
 import LocateIcon from "../../public/Images/location.svg";
 // import BannerBG from "../../public/Images/banner.png";
 import FullBannerBG from "../../public/Images/banner-full-page.png";
@@ -40,7 +40,7 @@ export const IMAGES = {
   calendar: Calendar,
   clock: Clock,
   flash: FlashIcon,
-  coin: CoinIcon,
+  coinSvg: Coin,
   location: LocateIcon,
   // banner: BannerBG,
   fullBanner: FullBannerBG,
