@@ -13,14 +13,14 @@ export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   
-  // States to track which dark sections are currently visible
+
   const [isProgrammeInView, setIsProgrammeInView] = useState(false);
   const [isAboutEventInView, setIsAboutEventInView] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isAtTop, setIsAtTop] = useState(true);
 
   useEffect(() => {
-    // 1. Initial checks for Mobile and Scroll position
+
     const updateSize = () => setIsMobile(window.innerWidth < 1024);
     const handleScroll = () => setIsAtTop(window.scrollY === 0);
     
@@ -29,7 +29,6 @@ export default function Navbar() {
     updateSize();
     handleScroll();
 
-    // 2. Observer logic for multiple sections
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -61,11 +60,6 @@ export default function Navbar() {
     };
   }, [pathname]);
 
-  // 3. THEME LOGIC CONSOLIDATION
-  // Navbar is dark if:
-  // - We are on the standalone "/about" page (Mobile only)
-  // - OR we are scrolled over "#programme" (All screens)
-  // - OR we are scrolled over "#about-event" (Mobile only)
   const isDark = 
     (pathname === "/about" && isMobile) || 
     isProgrammeInView || 
@@ -109,7 +103,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Desktop Navigation */}
+
         <div className="hidden lg:flex text-sm tracking-wider items-center gap-7 mr-40">
           {navLinks.map((link) => (
             <Link key={link.name} href={link.href} className={linkClass(link.href)}>
@@ -124,10 +118,9 @@ export default function Navbar() {
         </div>
 
         <div className="hidden lg:block">
-          <PrimaryBtn label="Register Interest" href="/interest" />
+          <PrimaryBtn label="Become a Sponsor" href="/sponsorship" />
         </div>
 
-        {/* Mobile Toggle */}
         <div className="lg:hidden">
           <button 
             onClick={() => setIsOpen(!isOpen)} 
@@ -164,7 +157,7 @@ export default function Navbar() {
               </motion.div>
             ))}
             <motion.div className="pt-4">
-              <PrimaryBtn label="Register Interest" href="/interest" />
+              <PrimaryBtn label="Become a Sponsor" href="/sponsorship" />
             </motion.div>
           </motion.div>
         )}

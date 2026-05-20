@@ -5,16 +5,16 @@ export const runtime = "nodejs";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { companyName, contactPerson, email, category, description } = body;
+    const { companyName, contactPerson, email, countryCode, phone, category, sector, description } = body;
 
-    if (!companyName || !contactPerson || !email || !category) {
+    if (!companyName || !contactPerson || !email || !countryCode || !phone || !category || !sector) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
       );
     }
 
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby9ZIhbgyOuc6mRKf7qPUBBUe2XjEEOS-TrP82wqm7xT1YRMkwNnG09AGVXVzCj4r4/exec";
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw_M6Xuy6oCC0dre86DDAkuS91Pp0p36VY86H7Hzvq8cQtE6-MMQFlEAZ1hulag_UY/exec";
 
 const response = await fetch(GOOGLE_SCRIPT_URL, {
   method: "POST",
@@ -23,7 +23,10 @@ const response = await fetch(GOOGLE_SCRIPT_URL, {
     companyName,
     contactPerson,
     email,
+    countryCode,
+    phone,
     category,
+    sector,
     description: description || "No description provided",
     timestamp: new Date().toISOString(),
   }),

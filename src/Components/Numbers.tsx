@@ -46,7 +46,7 @@ export default function Numbers() {
       suffix: "+",
       label: "Ecosystem, Corporate & Government Partners",
     },
-    { number: 60, suffix: "+", label: "Supported Startups" },
+    { number: 100, suffix: "+", label: "Supported Startups" },
     { number: 500, suffix: "+", label: "Innovators Trained" },
     { number: 20, suffix: "k+", label: "Trained Talents" },
     { number: 500, prefix: "₦", suffix: "m+", label: "Funding Support" },

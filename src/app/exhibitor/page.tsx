@@ -36,12 +36,26 @@ export default function ExhibitorPage() {
     companyName: "",
     contactPerson: "",
     email: "",
+    countryCode: "+234",
+    phone: "",
     category: "",
     description: "",
+    sector: "",
+    termsAccepted: false,
   });
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  const countryCodes = [
+    { code: "+234", label: "NG (+234)" },
+    { code: "+1", label: "US/CA (+1)" },
+    { code: "+44", label: "UK (+44)" },
+    { code: "+91", label: "IN (+91)" },
+    { code: "+27", label: "ZA (+27)" },
+    { code: "+254", label: "KE (+254)" },
+    { code: "+233", label: "GH (+233)" },
+  ];
 
   const handleConfetti = () => {
     confetti({
@@ -70,8 +84,12 @@ export default function ExhibitorPage() {
           companyName: "",
           contactPerson: "",
           email: "",
+          countryCode: "+234",
+          phone: "",
           category: "",
           description: "",
+          sector: "",
+          termsAccepted: false,
         });
       } else {
         const errorData = await response.json();
@@ -86,9 +104,15 @@ export default function ExhibitorPage() {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value, type } = e.target;
+    const checked = type === "checkbox" ? (e.target as HTMLInputElement).checked : undefined;
+    
+    setFormData({ 
+      ...formData, 
+      [name]: type === "checkbox" ? checked : value 
+    });
   };
 
   return (
@@ -143,22 +167,7 @@ export default function ExhibitorPage() {
             <form onSubmit={handleSubmit} className="mt-8 space-y-4">
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">
-                  Startup/Company Name
-                </label>
-                <input
-                  required
-                  type="text"
-                  name="companyName"
-                  value={formData.companyName}
-                  onChange={handleChange}
-                  placeholder="Startup/Company name"
-                  className="w-full rounded-md border border-gray-200 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#62CF3A]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">
-                  Contact Person
+                  Contact Person Full Name
                 </label>
                 <input
                   required
@@ -173,7 +182,22 @@ export default function ExhibitorPage() {
 
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">
-                  Email
+                  Organization/Company Name
+                </label>
+                <input
+                  required
+                  type="text"
+                  name="companyName"
+                  value={formData.companyName}
+                  onChange={handleChange}
+                  placeholder="Startup/Company name"
+                  className="w-full rounded-md border border-gray-200 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#62CF3A]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">
+                  Email Address
                 </label>
                 <input
                   required
@@ -188,17 +212,51 @@ export default function ExhibitorPage() {
 
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">
+                  Contact Phone Number
+                </label>
+                <div className="flex gap-2">
+                  <select
+                    name="countryCode"
+                    value={formData.countryCode}
+                    onChange={handleChange}
+                    className="w-32 rounded-md border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#62CF3A] bg-white cursor-pointer"
+                  >
+                    {countryCodes.map((country) => (
+                      <option key={country.code} value={country.code}>
+                        {country.label}
+                      </option>
+                    ))}
+                  </select>
+                  <input
+                    required
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="Phone number"
+                    className="flex-1 rounded-md border border-gray-200 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#62CF3A]"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">
                   Product Category
                 </label>
-                <input
+                <select
                   required
-                  type="text"
                   name="category"
                   value={formData.category}
                   onChange={handleChange}
-                  placeholder="e.g Saas, Fintech, Healthtech, E-commerce, etc..."
-                  className="w-full rounded-md border border-gray-200 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#62CF3A]"
-                />
+                  className="w-full rounded-md border border-gray-200 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#62CF3A] bg-white cursor-pointer"
+                >
+                  <option value="" disabled>Select your category</option>
+                  <option value="Startup/SME (>5years)">Startup/SME (&gt;5years)</option>
+                  <option value="Established Company/Corporation">Established Company/Corporation</option>
+                  <option value="Academic/Research Institution">Academic/Research Institution</option>
+                  <option value="Non-Profit/Government Agency">Non-Profit/Government Agency</option>
+                  <option value="Independent Innovator/Individual">Independent Innovator/Individual</option>
+                </select>
               </div>
 
               <div>
@@ -216,6 +274,43 @@ export default function ExhibitorPage() {
               </div>
 
               <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">
+                  Technology Sector
+                </label>
+                <select
+                  required
+                  name="sector"
+                  value={formData.sector}
+                  onChange={handleChange}
+                  className="w-full rounded-md border border-gray-200 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#62CF3A] bg-white cursor-pointer"
+                >
+                  <option value="" disabled>Select a sector</option>
+                  <option value="FinTech/Blockchain">FinTech/Blockchain</option>
+                  <option value="HealthTech/BioTech">HealthTech/BioTech</option>
+                  <option value="AI/Machine Learning">AI/Machine Learning</option>
+                  <option value="Clean Energy/Sustainability">Clean Energy/Sustainability</option>
+                  <option value="AgriTech/Food Security">AgriTech/Food Security</option>
+                  <option value="EdTech/Learning Solutions">EdTech/Learning Solutions</option>
+                  <option value="Robotics/Automation">Robotics/Automation</option>
+                  <option value="Other">Other (please specify in the description field)</option>
+                </select>
+              </div>
+
+              <div className="flex items-start gap-3 mt-4 mb-2">
+                <input
+                  required
+                  type="checkbox"
+                  name="termsAccepted"
+                  checked={formData.termsAccepted}
+                  onChange={handleChange}
+                  className="mt-1 h-4 w-4 shrink-0 text-[#62CF3A] focus:ring-[#62CF3A] border-gray-300 rounded cursor-pointer"
+                />
+                <label className="text-sm text-gray-600 leading-relaxed">
+                  I confirm that all information provided is accurate, and I agree to the Innovation Fair Exhibitor Terms and Conditions (Check website for T&C).
+                </label>
+              </div>
+
+              <div>
                 <PrimaryBtn
                   label={loading ? "Registering..." : "Register"}
                   href={undefined}
@@ -227,14 +322,16 @@ export default function ExhibitorPage() {
           </motion.div>
 
           <motion.div 
-          className="hidden lg:flex justify-center lg:justify-end"
-          variants={fadeInRight}
-          initial="hidden"
-          animate="visible">
+            className="hidden lg:flex justify-center lg:justify-end"
+            variants={fadeInRight}
+            initial="hidden"
+            animate="visible"
+          >
             <div className="relative">
               <img
                 src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597462/flash_z9vzcp.jpg?_s=public-apps"
                 alt="flash"
+                className="rounded-lg"
               />
             </div>
           </motion.div>

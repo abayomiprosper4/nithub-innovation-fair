@@ -158,7 +158,7 @@ export default function SponsorshipPage() {
               className="
                 absolute -bottom-10 left-4 right-4
                 md:left-4 md:right-4 md:bottom-6
-                lg:-bottom-28 lg:left-30 lg:right-auto
+                lg:-bottom-28 lg:left-24 lg:right-auto
                 bg-white p-6 sm:p-8 rounded-3xl
                 shadow-[0_20px_50px_rgba(0,0,0,0.12)]
                 border border-gray-50
@@ -171,8 +171,8 @@ export default function SponsorshipPage() {
                   ["Diamond Sponsor", "₦7,000,000"],
                   ["Gold Sponsor", "₦5,000,000"],
                   ["Silver Sponsor", "₦3,000,000"],
-                  ["Prize Money Sponsor", "₦10k Pool"],
-                  ["Deal Room Sponsor", "$100k+ Capital"],
+                  ["Exhibition Tier Sponsor", "₦10k Pool"],
+                  ["Investor Deal Room Sponsor", "$100k+ Capital"],
                   ["In-Kind Partners", "Custom"],
                 ].map(([name, price], i) => (
                   <div
@@ -262,13 +262,13 @@ export default function SponsorshipPage() {
                   onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
                 >
                   <option value="">Select an option</option>
-                  <option value="Platinum Sponsor">Platinum Sponsor</option>
-                  <option value="Diamond Sponsor">Diamond Sponsor</option>
-                  <option value="Gold Sponsor">Gold Sponsor</option>
-                  <option value="Silver Sponsor">Silver Sponsor</option>
-                  <option value="Prize Money Sponsor">Prize Money Sponsor</option>
-                  <option value="Deal Room Sponsor">Deal Room Sponsor</option>
-                  <option value="In-Kind Partner">In-Kind Partner</option>
+                  <option value="Platinum Sponsor">Platinum Sponsor (₦10,000,000)</option>
+                  <option value="Diamond Sponsor">Diamond Sponsor (₦7,000,000)</option>
+                  <option value="Gold Sponsor">Gold Sponsor (₦5,000,000)</option>
+                  <option value="Silver Sponsor">Silver Sponsor (₦3,000,000)</option>
+                  <option value="Prize Money Sponsor">Exhibition Tier (₦10k Pool)</option>
+                  <option value="Deal Room Sponsor">Investor Deal Room Sponsor (₦100k + Capital)</option>
+                  <option value="In-Kind Partner">In-Kind Sponsor (Custom)</option>
                 </select>
               </div>
 

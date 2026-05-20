@@ -27,7 +27,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="mainhero z-1 px-6 md:px-[6.25vw] 2xl:mx-auto max-w-7xl mx-auto my-28 overflow-hidden">
+    <section className="mainhero z-1 px-6 md:px-[5.25vw] 2xl:mx-auto max-w-8xl mx-auto my-28 overflow-hidden">
       <div>
         <div className="flex flex-col lg:flex-row justify-between items-center gap-10 lg:gap-[10vh]">
           <div className="w-full lg:basis-[45%] relative mt-8 lg:mt-0 text-center lg:text-left">
@@ -67,7 +67,7 @@ const Hero = () => {
               variants={fadeInUp}
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             >
-              Join founders, students, investors, corporates and policy makers
+              Join founders, investors, corporates and policy makers
               as we mark five years of innovation at the University of Lagos and
               unveil the next phase of impact.
             </motion.p>
@@ -121,7 +121,7 @@ const Hero = () => {
                 alt="Date"
                 className="mr-2 w-6 lg:w-7"
               />
-              <span>May 2026</span>
+              <span>29 &ndash; 31st July 2026</span>
             </div>
             <div className="flex text-base lg:text-lg tracking-[-1px] text-[#232323] font-normal items-center">
               <img

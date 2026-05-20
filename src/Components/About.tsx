@@ -33,7 +33,6 @@ const AboutSection = () => {
     >
       {/* --- MOBILE BACKGROUND (Dark Overlay) --- */}
       <div className="absolute inset-0 lg:hidden -z-10">
-        {/* Dark Overlay for Mobile Readability */}
         <div className="absolute inset-0 bg-black/60 z-10" /> 
         <Image
           src={IMAGES.aboutImg}
@@ -45,11 +44,9 @@ const AboutSection = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start lg:items-center relative z-20">
-        
-        {/* TEXT COLUMN */}
+
         <div className="order-1 lg:order-1">
           <motion.h2
-            /* White on mobile (dark bg), Black on desktop */
             className="text-4xl md:text-center lg:text-left sm:text-center lg:text-5xl lg:pl-6 mt-6 space-y-6 font-bold text-white lg:text-black leading-tight"
             {...fadeInUp}
             transition={{ duration: 0.5 }}
@@ -62,9 +59,9 @@ const AboutSection = () => {
             {...fadeInUp}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            The NITHUB 5th Year Anniversary & Innovation Fair is a two-day
+            The NITHUB Innovation Fair is a three-day
             innovation festival celebrating five years of impact by the
-            University of Lagos’ official innovation and technology hub.
+            University of Lagos&apos; official innovation and technology hub.
           </motion.div>
 
           <motion.div
@@ -85,7 +82,7 @@ const AboutSection = () => {
           >
             <PrimaryBtn
               label={"Download Sponsorship Deck"}
-              href="/Documents/sponsorship-deck.pdf"
+              href="/Documents/nithub-pitch-deck.pdf"
               download="Sponsorship-Deck.pdf"
             />
           </motion.div>
