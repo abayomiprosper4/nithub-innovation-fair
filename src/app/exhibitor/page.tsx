@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import confetti from "canvas-confetti";
+import Image from "next/image"
 import PrimaryBtn from "@/Components/PrimaryBtn";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
@@ -31,7 +32,11 @@ export default function ExhibitorPage() {
       },
     },
   };
-
+const fadeInLeft = {
+  initial: { opacity: 0, x: -40 },
+  whileInView: { opacity: 1, x: 0 },
+  viewport: { once: true },
+};
   const [formData, setFormData] = useState({
     companyName: "",
     contactPerson: "",
@@ -104,14 +109,17 @@ export default function ExhibitorPage() {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     const { name, value, type } = e.target;
-    const checked = type === "checkbox" ? (e.target as HTMLInputElement).checked : undefined;
-    
-    setFormData({ 
-      ...formData, 
-      [name]: type === "checkbox" ? checked : value 
+    const checked =
+      type === "checkbox" ? (e.target as HTMLInputElement).checked : undefined;
+
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value,
     });
   };
 
@@ -139,7 +147,7 @@ export default function ExhibitorPage() {
                 Registration Confirmed!
               </h3>
               <p className="text-gray-500 mb-8">
-                We've received your exhibitor application. Our team will review
+                We&apos;ve received your exhibitor application. Our team will review
                 it and get back to you shortly.
               </p>
               <button
@@ -153,17 +161,74 @@ export default function ExhibitorPage() {
         )}
       </AnimatePresence>
 
-      <main className="min-h-screen pt-30 bg-linear-to-br from-[#FFFFFF] via-[#F2F2F7] to-[#F2F2F7] py-7 flex items-center justify-center px-6">
+      <main className="min-h-screen pt-30 bg-linear-to-br from-[#FFFFFF] via-[#fafafc] to-[#fafafe] py-7 flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div variants={fadeInUp} initial="hidden" animate="visible">
-            <h1 className="text-4xl lg:text-5xl text-center lg:text-left font-semibold text-gray-900">
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            className="rounded-4xl border border-gray-200/70 bg-white/85 backdrop-blur-sm p-8 lg:p-10 shadow-[0_32px_80px_-48px_rgba(34,197,94,0.55)]"
+          >
+            <div className="mb-6 inline-flex items-center gap-3">
+              <span className="h-1.5 w-14 rounded-full bg-[#62CF3A]" />
+              <span className="text-sm font-semibold uppercase tracking-[0.3em] text-[#1b5f22]">
+                Exhibitor Experience
+              </span>
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl text-center lg:text-left font-semibold text-gray-900 leading-tight">
               Exhibit at the Innovation Fair
             </h1>
-            <p className="mt-3 text-gray-600 max-w-md">
-              Showcase your startup, product, or solution to a high-quality
-              innovation audience.
+            <p className="mt-4 text-base sm:text-lg text-gray-600 leading-8 max-w-2xl">
+Apply to showcase your groundbreaking innovations at our annual fair in July! Open to startups, academic institutions, and established companies. Click here to view our exhibition brief. For inquiries, email {" "}
+<p><a href="mailto:partnership-nithub@unilag.edu.ng" className="text-[#62CF3A] hover:underline">
+  partnership-nithub@unilag.edu.ng
+</a></p>
             </p>
 
+            <div className="mt-8 rounded-4xl border border-[#62CF3A]/15 bg-[#f6fff4] p-6 sm:p-7 shadow-sm">
+              <p className="text-gray-800 text-base sm:text-lg font-semibold mb-4">
+                Exhibitors should have at least one of the following:
+              </p>
+              <motion.ul
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="grid gap-3 text-gray-600 text-sm sm:text-base"
+              >
+                <li className="flex items-start gap-3">
+                  <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[#62CF3A] shrink-0" />
+                  <span>A working Prototype</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[#62CF3A] shrink-0" />
+                  <span>A minimum viable product</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[#62CF3A] shrink-0" />
+                  <span>A Demo version</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[#62CF3A] shrink-0" />
+                  <span>A research output with practical applications</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[#62CF3A] shrink-0" />
+                  <span>A product already in the market</span>
+                </li>
+              </motion.ul>
+            </div>
+          <motion.div
+            className="mt-10 inline-flex items-center rounded-full px-0 lg:px-6 py-3 text-white font-semibold transition"
+            {...fadeInLeft}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
+            <PrimaryBtn
+              label={"Download Sponsorship Deck"}
+              href="/Documents/innovation-fair-exhibition-brief.pdf"
+              download="Exhibition-Brief.pdf"
+            />
+          </motion.div>
             <form onSubmit={handleSubmit} className="mt-8 space-y-4">
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">
@@ -250,12 +315,24 @@ export default function ExhibitorPage() {
                   onChange={handleChange}
                   className="w-full rounded-md border border-gray-200 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#62CF3A] bg-white cursor-pointer"
                 >
-                  <option value="" disabled>Select your category</option>
-                  <option value="Startup/SME (>5years)">Startup/SME (&gt;5years)</option>
-                  <option value="Established Company/Corporation">Established Company/Corporation</option>
-                  <option value="Academic/Research Institution">Academic/Research Institution</option>
-                  <option value="Non-Profit/Government Agency">Non-Profit/Government Agency</option>
-                  <option value="Independent Innovator/Individual">Independent Innovator/Individual</option>
+                  <option value="" disabled>
+                    Select your category
+                  </option>
+                  <option value="Startup/SME (>5years)">
+                    Startup/SME (&gt;5years)
+                  </option>
+                  <option value="Established Company/Corporation">
+                    Established Company/Corporation
+                  </option>
+                  <option value="Academic/Research Institution">
+                    Academic/Research Institution
+                  </option>
+                  <option value="Non-Profit/Government Agency">
+                    Non-Profit/Government Agency
+                  </option>
+                  <option value="Independent Innovator/Individual">
+                    Independent Innovator/Individual
+                  </option>
                 </select>
               </div>
 
@@ -284,15 +361,29 @@ export default function ExhibitorPage() {
                   onChange={handleChange}
                   className="w-full rounded-md border border-gray-200 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#62CF3A] bg-white cursor-pointer"
                 >
-                  <option value="" disabled>Select a sector</option>
+                  <option value="" disabled>
+                    Select a sector
+                  </option>
                   <option value="FinTech/Blockchain">FinTech/Blockchain</option>
                   <option value="HealthTech/BioTech">HealthTech/BioTech</option>
-                  <option value="AI/Machine Learning">AI/Machine Learning</option>
-                  <option value="Clean Energy/Sustainability">Clean Energy/Sustainability</option>
-                  <option value="AgriTech/Food Security">AgriTech/Food Security</option>
-                  <option value="EdTech/Learning Solutions">EdTech/Learning Solutions</option>
-                  <option value="Robotics/Automation">Robotics/Automation</option>
-                  <option value="Other">Other (please specify in the description field)</option>
+                  <option value="AI/Machine Learning">
+                    AI/Machine Learning
+                  </option>
+                  <option value="Clean Energy/Sustainability">
+                    Clean Energy/Sustainability
+                  </option>
+                  <option value="AgriTech/Food Security">
+                    AgriTech/Food Security
+                  </option>
+                  <option value="EdTech/Learning Solutions">
+                    EdTech/Learning Solutions
+                  </option>
+                  <option value="Robotics/Automation">
+                    Robotics/Automation
+                  </option>
+                  <option value="Other">
+                    Other (please specify in the description field)
+                  </option>
                 </select>
               </div>
 
@@ -305,12 +396,14 @@ export default function ExhibitorPage() {
                   onChange={handleChange}
                   className="mt-1 h-4 w-4 shrink-0 text-[#62CF3A] focus:ring-[#62CF3A] border-gray-300 rounded cursor-pointer"
                 />
-                <label className="text-sm text-gray-600 leading-relaxed">
-                  I confirm that all information provided is accurate, and I agree to the Innovation Fair Exhibitor Terms and Conditions (Check website for T&C).
+                <label className="text-sm text-gray-600 mb-5 leading-relaxed">
+                  I confirm that all information provided is accurate, and I
+                  agree to the Innovation Fair Exhibitor Terms and Conditions
+                  (Check website for T&C).
                 </label>
               </div>
 
-              <div>
+              <div className="mb-5">
                 <PrimaryBtn
                   label={loading ? "Registering..." : "Register"}
                   href={undefined}
@@ -318,20 +411,25 @@ export default function ExhibitorPage() {
                   disabled={loading}
                 />
               </div>
+               <label className="text-sm italic text-gray-600 leading-relaxed">
+               N/B: Exhibitors are  in the ₦3,000,000 Tier of our Sponsorship Packages.
+                </label>
             </form>
           </motion.div>
 
-          <motion.div 
-            className="hidden lg:flex justify-center lg:justify-end"
+          <motion.div
+            className="hidden lg:flex justify-center lg:justify-end relative"
             variants={fadeInRight}
             initial="hidden"
             animate="visible"
           >
-            <div className="relative">
-              <img
+            <div className="relative w-full max-w-155">
+              <Image
                 src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597462/flash_z9vzcp.jpg?_s=public-apps"
                 alt="flash"
-                className="rounded-lg"
+                width={600}
+                height={400}
+                className="rounded-lg animate-pulse"
               />
             </div>
           </motion.div>

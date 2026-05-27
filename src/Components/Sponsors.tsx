@@ -127,7 +127,7 @@ export default function Sponsors() {
                 className="w-full flex items-center justify-between group py-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <h2 className="text-2xl md:text-5xl font-normal tracking-tight transition-colors group-hover:text-[#62CF3A]">
+                  <h2 className="text-xl md:text-5xl font-normal tracking-tight transition-colors group-hover:text-[#62CF3A]">
                     {tier.title}
                   </h2>
                   <RotatingTrophy gradient={tierGradients[tier.title]} />
@@ -167,16 +167,16 @@ export default function Sponsors() {
             </div>
           );
         })}
-        <div className="flex justify-between items-center rounded-[30px] p-10 bg-[#62CF3A] mt-20">
-          <p className="text-[20px] text-white font-bold uppercase tracking-[0.2em]">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center rounded-[30px] p-6 md:p-10 bg-[#62CF3A] mt-20">
+          <p className="text-center md:text-left md:text-[20px] text-base text-white font-bold uppercase tracking-[0.2em]">
             Want to become a Sponsor?
           </p>
           <Link
             href="/sponsorship"
-            className="group relative overflow-hidden bg-[#0A1900] text-white rounded-lg font-bold py-4 px-16 transition-all duration-300 ease-out hover:scale-105 inline-flex items-center justify-center"
+            className="group relative overflow-hidden bg-[#0A1900] text-white rounded-lg font-bold py-4 px-8 md:px-16 transition-all duration-300 ease-out hover:scale-105 inline-flex items-center justify-center w-full md:w-auto max-w-full"
           >
             <span className="absolute top-0 -left-[20%] w-[140%] h-full bg-white skew-x-12 -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out z-0" />
-            <span className="relative z-10 text-white group-hover:text-[#0A1900] transition-colors duration-300 ease-out">
+            <span className="relative md:text-lg text-sm z-10 text-white group-hover:text-[#0A1900] transition-colors duration-300 ease-out">
               Click Here!
             </span>
           </Link>

@@ -132,7 +132,7 @@ export default function SponsorshipPage() {
             <div className="mt-12 flex justify-center lg:justify-start">
               <PrimaryBtn
                 label="Download Sponsorship Deck"
-                href="/Documents/sponsorship-deck.pdf"
+                href="/Documents/nithub-pitch-deck.pdf"
                 download="Sponsorship-Deck.pdf"
               />
             </div>
@@ -199,12 +199,14 @@ export default function SponsorshipPage() {
       <section className="bg-gray-100 mt-28 py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">
           <div className="text-center lg:text-left">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+            <h2 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl text-center lg:text-left font-semibold text-gray-900 leading-tight">
               Partner With Nithub
             </h2>
-            <p className="mt-6 text-lg lg:text-xl font-semibold text-gray-700 mb-12">
+            <div className="mt-8 mb-12 rounded-4xl border border-[#62CF3A]/15 bg-[#f6fff4] p-6 sm:p-7 shadow-sm">
+            <p className="text-gray-800 text-base sm:text-lg font-semibold">
               Tell us about your organization and how you would like to partner.
             </p>
+            </div>
 
             <form onSubmit={handleSubmit} className="space-y-4 max-w-xl mx-auto lg:mx-0 text-left">
               <div>
@@ -294,10 +296,12 @@ export default function SponsorshipPage() {
           </div>
 
           <div className="hidden lg:flex items-center justify-end">
-            <img
+            <Image
               src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597460/Card_uhonvp.jpg?_s=public-apps"
               alt="Illustration"
-              className="object-contain max-w-full h-auto"
+              width={600}
+              height={400}
+              className="animate-pulse object-contain max-w-full h-auto"
             />
           </div>
         </div>

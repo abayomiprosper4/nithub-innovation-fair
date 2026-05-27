@@ -27,10 +27,11 @@ const Hero = () => {
   };
 
   return (
-    <section className="mainhero z-1 px-6 md:px-[5.25vw] 2xl:mx-auto max-w-8xl mx-auto my-28 overflow-hidden">
+    /* Added pt-[20px] to create a safe buffer zone for the upward animation */
+    <section className="mainhero z-1 pt-5 px-6 md:px-[5.25vw] 2xl:px-0 max-w-8xl mx-auto my-16 lg:my-28 overflow-hidden">
       <div>
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-10 lg:gap-[10vh]">
-          <div className="w-full lg:basis-[45%] relative mt-8 lg:mt-0 text-center lg:text-left">
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-8 md:gap-10 lg:gap-[10vh]">
+          <div className="w-full lg:basis-[45%] relative mt-6 lg:mt-0 text-center lg:text-left">
             <div
               className="absolute top-[5%] -left-[10%] w-[50vw] lg:w-[20vw] h-[50vw] lg:h-[20vw] rounded-full blur-[30px] -z-10"
               style={{
@@ -61,15 +62,15 @@ const Hero = () => {
               </h1>
             </motion.div>
             <motion.p
-              className="m-0 text-lg sm:text-xl lg:text-[28px] leading-relaxed lg:leading-9 font-normal lg:tracking-[-1px] whitespace-normal"
+              className="m-0 text-base sm:text-lg lg:text-xl leading-relaxed lg:leading-9 font-normal lg:tracking-[-1px] whitespace-normal"
               initial="initial"
               animate="animate"
               variants={fadeInUp}
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             >
-              Join founders, investors, corporates and policy makers
-              as we mark five years of innovation at the University of Lagos and
-              unveil the next phase of impact.
+              Join founders, investors, corporates and policy makers as we mark
+              five years of innovation at the University of Lagos and unveil the
+              next phase of impact.
             </motion.p>
           </div>
           <motion.div
@@ -114,14 +115,6 @@ const Hero = () => {
                 className="mr-2 w-6 lg:w-7"
               />
               <span>University of Lagos</span>
-            </div>
-            <div className="flex text-base lg:text-lg tracking-[-1px] text-[#232323] font-normal items-center">
-              <img
-                src="https://res.cloudinary.com/dw3ublxm7/image/upload/fl_preserve_transparency/v1771597460/calendar-2_zuhfby.jpg?_s=public-apps"
-                alt="Date"
-                className="mr-2 w-6 lg:w-7"
-              />
-              <span>29 &ndash; 31st July 2026</span>
             </div>
             <div className="flex text-base lg:text-lg tracking-[-1px] text-[#232323] font-normal items-center">
               <img

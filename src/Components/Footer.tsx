@@ -12,7 +12,6 @@ export default function Footer() {
   ];
 
   const engagementLinks = [
-    { name: "Register Interest", href: "/interest" },
     { name: "Sponsorship", href: "/sponsorship" },
     { name: "Exhibit", href: "/exhibitor" },
   ];
@@ -21,8 +20,8 @@ export default function Footer() {
     <footer className="w-full bg-[#F2F2F7] pt-20 font-sans">
       <div className="max-w-7xl mx-auto px-6 lg:px-1">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-y-12 lg:gap-x-4">
-<div className="lg:col-span-2 max-w-md flex flex-col">
-<div className="mb-8 w-auto h-auto">
+          <div className="lg:col-span-2 max-w-md flex flex-col">
+            <div className="mb-8 w-auto h-auto">
               <Image
                 src={IMAGES.nithubLogo}
                 alt="Nithub Logo"
@@ -32,15 +31,15 @@ export default function Footer() {
                 loading="eager"
               />
             </div>
-<div className="mt-6">
-  <p className="text-[20px] md:text-[24px] text-justify text-[#1F2937] leading-normal font-medium tracking-tight">
-    Nithub is the official Innovation & Technology Hub of the
-    University of Lagos, committed to nurturing innovation,
-    entrepreneurship, and impact-driven solutions.
-  </p>
-</div>
+            <div className="mt-6">
+              <p className="text-[20px] md:text-[24px] text-justify text-[#1F2937] leading-normal font-medium tracking-tight">
+                Nithub is the official Innovation & Technology Hub of the
+                University of Lagos, committed to nurturing innovation,
+                entrepreneurship, and impact-driven solutions.
+              </p>
+            </div>
           </div>
-<div className="lg:pt-26 lg:pl-10">
+          <div className="lg:pt-26 lg:pl-10">
             <h4 className="text-black font-semibold mb-4 text-[17px] tracking-wide">
               About
             </h4>
@@ -58,7 +57,7 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-<div className="lg:pt-26">
+          <div className="lg:pt-26">
             <h4 className="text-black font-medium mb-4 text-[17px] tracking-wide">
               Register
             </h4>
@@ -76,17 +75,29 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-<div className="lg:pt-26">
+          <div className="lg:pt-26">
             <h4 className="text-black font-semibold mb-4 text-[17px] tracking-wide">
               Contact
             </h4>
             <div className="space-y-5 text-[15px] text-[#8E8E93] mb-6">
-              <p className="hover:text-[#62CF3A] font-normal transition-colors cursor-pointer break-all">
-                info-nitdahub@unilag.edu.ng
-              </p>
-              <p className="hover:text-[#62CF3A] font-normal transition-colors cursor-pointer break-all">
-                community-nithub@unilag.edu.ng
-              </p>
+              <div>
+              <a
+                href="mailto:info-nithub@unilag.edu.ng"
+                className="hover:text-[#62CF3A] font-normal transition-colors cursor-pointer break-all"
+              >
+                <p className="hover:text-[#62CF3A] font-normal transition-colors cursor-pointer break-all">
+                  info-nithub@unilag.edu.ng
+                </p>
+              </a>
+              </div>
+              <div>
+              <a
+                href="mailto:partnership-nithub@unilag.edu.ng"
+                className="hover:text-[#62CF3A] font-normal transition-colors cursor-pointer break-all"
+              >
+                partnership-nithub@unilag.edu.ng
+              </a>
+              </div>
             </div>
 
             <div className="flex items-center gap-5 text-[#8E8E93]">
@@ -103,10 +114,10 @@ export default function Footer() {
                 <FiFacebook size={22} />
               </a>
               <a
-                href="#"
+                href="https://www.tiktok.com/@nithub_unilag"
                 className="hover:text-[#62CF3A] transition-transform hover:-translate-y-1"
               >
-                <FaWhatsapp size={22} />
+                <FaTiktok size={22} />
               </a>
               <a
                 href="https://x.com/nithub_lag"

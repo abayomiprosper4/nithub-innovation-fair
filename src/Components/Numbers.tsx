@@ -14,13 +14,13 @@ interface CounterProps {
 }
 
 function Counter({ value }: CounterProps) {
-const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { 
-    once: true, 
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, {
+    once: true,
     margin: "-20px",
-    amount: "some" 
+    amount: "some",
   });
-  
+
   const count = useMotionValue(0);
   const rounded = useTransform(count, (latest) => Math.round(latest));
 
@@ -38,7 +38,7 @@ const ref = useRef<HTMLSpanElement>(null);
 
 export default function Numbers() {
   const emptyBoxClass =
-    "bg-[#F2F6FF] w-full p-6 h-44 md:h-55 flex flex-col justify-end transition-all shadow-lg";
+    "bg-[#F2F6FF] w-full p-5 sm:p-6 min-h-[14rem] sm:min-h-[16rem] md:min-h-[18rem] flex flex-col justify-end transition-all shadow-lg";
 
   const stats = [
     {
@@ -59,10 +59,10 @@ export default function Numbers() {
           Nithub In Numbers
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
           {stats.map((stat, index) => (
             <div key={index} className={emptyBoxClass}>
-              <div className="font-medium text-6xl md:text-7xl mb-2 flex items-baseline">
+              <div className="font-medium text-5xl sm:text-6xl md:text-7xl mb-2 flex items-baseline leading-none">
                 {stat.prefix && <span>{stat.prefix}</span>}
                 <Counter value={stat.number} />
                 {stat.suffix}
@@ -77,10 +77,10 @@ export default function Numbers() {
 
           <motion.div
             whileHover={{ scale: 0.98 }}
-            className="bg-[#62CF3A] w-full h-44 md:h-55 flex items-center justify-center text-white text-5xl lg:text-6xl font-bold cursor-pointer hover:bg-black transition-colors duration-500 group"
+            className="bg-[#62CF3A] w-full min-h-56 sm:min-h-64 md:min-h-72 flex items-center justify-center text-white text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold cursor-pointer hover:bg-black transition-colors duration-500 group px-6"
           >
-            <a href="/interest" className="flex">
-              Register
+            <a href="/sponsorship" className="flex">
+              Sponsor
               <FiArrowUpRight className="ml-2 group-hover:animate-[arrowBounce_0.5s_ease-out_2]" />
             </a>
           </motion.div>

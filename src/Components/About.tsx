@@ -1,24 +1,24 @@
-import React from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 // Adjust these imports based on your file structure
-import { IMAGES } from '../utils/assets'; 
-import PrimaryBtn from './PrimaryBtn'; 
+import { IMAGES } from "../utils/assets";
+import PrimaryBtn from "./PrimaryBtn";
 
-  const fadeInUp = {
-    initial: { opacity: 0, y: 40 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, amount: 0.3 },
-  };
+const fadeInUp = {
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.3 },
+};
 
-  const fadeInLeft = {
-    initial: { opacity: 0, x: -40 },
-    whileInView: { opacity: 1, x: 0 },
-    viewport: { once: true },
-  };
+const fadeInLeft = {
+  initial: { opacity: 0, x: -40 },
+  whileInView: { opacity: 1, x: 0 },
+  viewport: { once: true },
+};
 const AboutSection = () => {
   const listItems = [
-    "2 days of innovation, ideas and impact",
+    "3 days of innovation, ideas and impact",
     "Live Hackathon with real-world problem statements",
     "Startup exhibitions and demo days",
     "Investor Deal Room with real capital intent",
@@ -29,11 +29,11 @@ const AboutSection = () => {
   return (
     <section
       id="about-section"
-      className="about-event relative overflow-hidden mx-auto pt-15 max-w-7xl px-6 pb-20 lg:pb-32"
+      className="about-event relative overflow-hidden mx-auto pt-15 max-w-7xl px-4 sm:px-6 lg:px-6 pb-16 md:pb-20 lg:pb-32"
     >
       {/* --- MOBILE BACKGROUND (Dark Overlay) --- */}
       <div className="absolute inset-0 lg:hidden -z-10">
-        <div className="absolute inset-0 bg-black/60 z-10" /> 
+        <div className="absolute inset-0 bg-black/60 z-10" />
         <Image
           src={IMAGES.aboutImg}
           alt="Background"
@@ -44,10 +44,9 @@ const AboutSection = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start lg:items-center relative z-20">
-
         <div className="order-1 lg:order-1">
           <motion.h2
-            className="text-4xl md:text-center lg:text-left sm:text-center lg:text-5xl lg:pl-6 mt-6 space-y-6 font-bold text-white lg:text-black leading-tight"
+            className="text-4xl sm:text-5xl lg:text-5xl md:text-center lg:text-left sm:text-center lg:pl-6 mt-6 space-y-6 font-bold text-white lg:text-black leading-tight"
             {...fadeInUp}
             transition={{ duration: 0.5 }}
           >
@@ -55,24 +54,24 @@ const AboutSection = () => {
           </motion.h2>
 
           <motion.div
-            className="mt-6 space-y-4 leading-normal text-white lg:text-black text-base lg:text-2xl lg:pl-6"
+            className="mt-6 space-y-4 leading-normal text-white lg:text-black text-base sm:text-lg lg:text-xl lg:pl-6"
             {...fadeInUp}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            The NITHUB Innovation Fair is a three-day
-            innovation festival celebrating five years of impact by the
-            University of Lagos&apos; official innovation and technology hub.
+            The NITHUB Innovation Fair is a three-day innovation festival
+            celebrating five years of impact by the University of Lagos&apos;
+            official innovation and technology hub.
           </motion.div>
 
           <motion.div
-            className="mt-2 space-y-4 leading-normal text-white lg:text-black text-base lg:text-2xl lg:pl-6"
+            className="mt-2 space-y-4 leading-normal text-white lg:text-black text-base sm:text-lg lg:text-xl lg:pl-6"
             {...fadeInUp}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            The event brings together student innovators, startups,
-            researchers, corporates, investors, and policymakers to explore
-            ideas, showcase solutions, and unlock new partnerships shaping the
-            future of technology and entrepreneurship in Nigeria.
+            The event brings together student innovators, startups, researchers,
+            corporates, investors, and policymakers to explore ideas, showcase
+            solutions, and unlock new partnerships shaping the future of
+            technology and entrepreneurship in Nigeria.
           </motion.div>
 
           <motion.div
@@ -90,7 +89,6 @@ const AboutSection = () => {
 
         {/* IMAGE & LIST COLUMN */}
         <div className="relative order-2 lg:order-2 mb-10 lg:mb-0">
-          
           {/* --- DESKTOP IMAGE (Hidden on Mobile) --- */}
           <motion.div
             className="hidden lg:block overflow-hidden rounded-2xl shadow-xl aspect-video lg:aspect-auto"
@@ -108,7 +106,7 @@ const AboutSection = () => {
 
           {/* THE WHITE LIST CONTAINER (Visible on both) */}
           <motion.div
-            className="maindiv tracking-wide relative mt-6 lg:absolute lg:-bottom-30 lg:left-6 lg:right-6 lg:mx-8 bg-white rounded-xl shadow-2xl px-4 py-4 z-20"
+            className="maindiv tracking-wide relative mt-6 lg:absolute lg:-bottom-30 lg:left-6 lg:right-6 lg:mx-8 bg-white rounded-xl shadow-2xl px-5 py-5 lg:px-8 lg:py-6 z-20 max-w-3xl mx-auto"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
