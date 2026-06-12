@@ -81,7 +81,7 @@ const AboutSection = () => {
           >
             <PrimaryBtn
               label={"Download Sponsorship Deck"}
-              href="/Documents/nithub-pitch-deck.pdf"
+              href="/Documents/main-pitch-deck.pdf"
               download="Sponsorship-Deck.pdf"
             />
           </motion.div>

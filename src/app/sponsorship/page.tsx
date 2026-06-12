@@ -132,7 +132,7 @@ export default function SponsorshipPage() {
             <div className="mt-12 flex justify-center lg:justify-start">
               <PrimaryBtn
                 label="Download Sponsorship Deck"
-                href="/Documents/nithub-pitch-deck.pdf"
+                href="/Documents/main-pitch-deck.pdf"
                 download="Sponsorship-Deck.pdf"
               />
             </div>

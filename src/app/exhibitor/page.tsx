@@ -225,8 +225,8 @@ Apply to showcase your groundbreaking innovations at our annual fair in July! Op
           >
             <PrimaryBtn
               label={"Download Sponsorship Deck"}
-              href="/Documents/innovation-fair-exhibition-brief.pdf"
-              download="Exhibition-Brief.pdf"
+              href="/Documents/main-pitch-deck.pdf"
+              download="Sponsorship-Deck.pdf"
             />
           </motion.div>
             <form onSubmit={handleSubmit} className="mt-8 space-y-4">
