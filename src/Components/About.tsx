@@ -75,7 +75,7 @@ const AboutSection = () => {
           </motion.div>
 
           <motion.div
-            className="mt-10 inline-flex items-center rounded-full px-0 lg:px-6 py-3 text-white font-semibold transition"
+            className="mt-10 inline-flex items-center rounded-full px-0 lg:px-6 py-3 text-white text-center font-semibold transition"
             {...fadeInLeft}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
@@ -87,9 +87,7 @@ const AboutSection = () => {
           </motion.div>
         </div>
 
-        {/* IMAGE & LIST COLUMN */}
         <div className="relative order-2 lg:order-2 mb-10 lg:mb-0">
-          {/* --- DESKTOP IMAGE (Hidden on Mobile) --- */}
           <motion.div
             className="hidden lg:block overflow-hidden rounded-2xl shadow-xl aspect-video lg:aspect-auto"
             {...fadeInUp}
@@ -104,7 +102,6 @@ const AboutSection = () => {
             />
           </motion.div>
 
-          {/* THE WHITE LIST CONTAINER (Visible on both) */}
           <motion.div
             className="maindiv tracking-wide relative mt-6 lg:absolute lg:-bottom-30 lg:left-6 lg:right-6 lg:mx-8 bg-white rounded-xl shadow-2xl px-5 py-5 lg:px-8 lg:py-6 z-20 max-w-3xl mx-auto"
             initial={{ opacity: 0, scale: 0.95 }}

@@ -6,7 +6,7 @@ import Image from "next/image";
 import Footer from "@/Components/Footer";
 import Hero from "@/Components/Hero";
 import About from "@/Components/About";
-import Programme from "@/Components/Programme"
+import Programme from "@/Components/Programme";
 import PrimaryBtn from "@/Components/PrimaryBtn";
 import Attendee from "@/Components/Attendee";
 import Persons from "@/Components/Persons";
@@ -14,6 +14,7 @@ import Sponsors from "@/Components/Sponsors";
 import { IMAGES } from "@/utils/assets";
 import Numbers from "@/Components/Numbers";
 import Gallery from "@/Components/Gallery";
+import TixWidget from "@/Components/TixWidget";
 
 export default function Home() {
   const fadeInUp = {
@@ -37,9 +38,12 @@ export default function Home() {
       </div>
       <div id="about-event">
         <About />
-        </div>
+      </div>
+
+      <TixWidget />
+
       <motion.div
-      id="programme"
+        id="programme"
         className=""
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
